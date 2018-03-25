@@ -232,6 +232,271 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linjiaya.com/linjia.github.io/linjia.github.io/2018/03/25/vue-componet-Dom-注意事项/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="林佳">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/linjia.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="林佳's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/linjia.github.io/2018/03/25/vue-componet-Dom-注意事项/" itemprop="url">vue componet Dom 注意事项</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-25T21:01:32+08:00">
+                2018-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>受到html本身的一些限制，像<code>&lt;ul&gt;</code>、<code>&lt;ol&gt;</code>、<code>&lt;table&gt;</code>、<code>&lt;select&gt;</code>这样的元素里允许包含的的元素有限制，而另一些像<code>&lt;option&gt;</code>这样的元素只能出现在某些特定元素的内部。</p>
+<p>方案：使用特殊的<strong>is特性</strong></p>
+<ul>
+<li>应当注意，如果使用来自一下来源之一的字符串模板，则<strong>没有</strong>这些限制:</li>
+</ul>
+<ol>
+<li><code>&lt;script type=&quot;text/x-template&quot;&gt;</code></li>
+<li>javascript 内敛模板字符串</li>
+<li>vue组件</li>
+</ol>
+<p>意思是：<br><strong>这样不可以</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">        &lt;select&gt;</span><br><span class="line">            &lt;optioncomp&gt;&lt;/optioncomp&gt;</span><br><span class="line">        &lt;/select&gt;  </span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script src=&quot;lib/vue.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        new Vue (&#123;</span><br><span class="line">            el: &apos;#app&apos;,</span><br><span class="line">            components: &#123;</span><br><span class="line">                &apos;optioncomp&apos;: &#123;</span><br><span class="line">                    template: &apos;&lt;option&gt;a&lt;/option&gt;&apos;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>但是用is特殊属性可以</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">        &lt;select&gt;</span><br><span class="line">            &lt;option is=&quot;optioncomp&gt;</span><br><span class="line">        &lt;/select&gt;  </span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script src=&quot;lib/vue.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        new Vue (&#123;</span><br><span class="line">            el: &apos;#app&apos;,</span><br><span class="line">            components: &#123;</span><br><span class="line">                &apos;optioncomp&apos;: &#123;</span><br><span class="line">                    template: &apos;&lt;option&gt;a&lt;/option&gt;&apos;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>或者template模板标签也可以</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">        &lt;select&gt;</span><br><span class="line">            &lt;optioncomp&gt;&lt;/optioncomp&gt;</span><br><span class="line">        &lt;/select&gt;  </span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script type=&quot;x-template&quot; id=&quot;optioncomTemp&gt;</span><br><span class="line">        &lt;option&gt;a&lt;/option&gt;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;lib/vue.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        new Vue (&#123;</span><br><span class="line">            el: &apos;#app&apos;,</span><br><span class="line">            components: &#123;</span><br><span class="line">                &apos;optioncomp&apos;: &#123;</span><br><span class="line">                    template: &apos;#optioncompTemp&apos;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
+<p>或者<strong>内联模板字符串</strong>也行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">        &lt;selectcomp&gt;&lt;/selectcomp&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script src=&quot;lib/vue.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        Vue.component(&apos;optioncomp&apos;,&#123;</span><br><span class="line">            template: &apos;&lt;option&gt;a&lt;/option&gt;&apos;</span><br><span class="line">        &#125;)</span><br><span class="line">        new Vue (&#123;</span><br><span class="line">            el: &apos;#app&apos;,</span><br><span class="line">            components: &#123;</span><br><span class="line">                &apos;selectcomp&apos;: &#123;</span><br><span class="line">                    template: &apos;&lt;select&gt;&lt;optioncomp&gt;&lt;/optioncomp&gt;&lt;/select&gt;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
+<p>单页应用的组建文件XX.vue更是没有问题啦</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linjiaya.com/linjia.github.io/linjia.github.io/2018/03/25/IE兼容问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="林佳">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/linjia.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="林佳's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/linjia.github.io/2018/03/25/IE兼容问题/" itemprop="url">IE兼容问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-25T20:16:02+08:00">
+                2018-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="IE6-问题"><a href="#IE6-问题" class="headerlink" title="IE6 问题"></a>IE6 问题</h1><h2 id="解决ie6表格内外边框堆叠"><a href="#解决ie6表格内外边框堆叠" class="headerlink" title="解决ie6表格内外边框堆叠"></a>解决ie6表格内外边框堆叠</h2><p>在html&lt;table&gt;中加上 <code>border=&quot;1&quot; cellspacing=&quot;0&quot;</code></p>
+<h2 id="解决表格中td中如果没有东西是，会出现没有边框的现象"><a href="#解决表格中td中如果没有东西是，会出现没有边框的现象" class="headerlink" title="解决表格中td中如果没有东西是，会出现没有边框的现象"></a>解决表格中td中如果没有东西是，会出现没有边框的现象</h2><p>在td中加上<code>&amp;nbsp;</code>就会有一个无内容有边框的表格出现。</p>
+<h2 id="解决IE6、7、8使用JSON-stringify报JSON未定义错误的问题"><a href="#解决IE6、7、8使用JSON-stringify报JSON未定义错误的问题" class="headerlink" title="解决IE6、7、8使用JSON.stringify报JSON未定义错误的问题"></a>解决IE6、7、8使用JSON.stringify报JSON未定义错误的问题</h2><p>在通过javascript将对象类型的参数通过JSON.stringify转换成字符串传递时，IE6、7、8会报：”JSON”未定义的错误。我们可以通过在html文件的head头内引入json2.js文件来解决。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--[if li IE 9]&gt;</span><br><span class="line">    &lt;script src=&quot;json2.js&gt;&lt;/script&gt;</span><br><span class="line">&lt;![endif]--&gt;</span><br></pre></td></tr></table></figure></p>
+<p>引入之后，JSON.stringify就可以在IE6、7、8正常使用了</p>
+<h2 id="IE6不支持console-log-函数。"><a href="#IE6不支持console-log-函数。" class="headerlink" title="IE6不支持console.log()函数。"></a>IE6不支持console.log()函数。</h2><hr>
+<h1 id="IE8问题"><a href="#IE8问题" class="headerlink" title="IE8问题"></a>IE8问题</h1><h2 id="解决IE8不支持H5问题"><a href="#解决IE8不支持H5问题" class="headerlink" title="解决IE8不支持H5问题"></a>解决IE8不支持H5问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt;</span><br><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0, user-scalable=0&quot;&gt;</span><br><span class="line">&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;</span><br><span class="line">&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black&quot;&gt;</span><br><span class="line">&lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no, email=no&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="解决IE8不支持palceholder属性"><a href="#解决IE8不支持palceholder属性" class="headerlink" title="解决IE8不支持palceholder属性"></a>解决IE8不支持palceholder属性</h2><p>也需要引入js文件，这个js是基于jquery的，所以要先引入jquery文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;js/jquery-1.10.1.min.js&apos;&gt;&lt;/script&gt;</span><br><span class="line">&lt;!--[if lt IE 9]&gt;</span><br><span class="line">    &lt;script src=&quot;jquery.placeholder.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        $(function()&#123;</span><br><span class="line">            $(&apos;input, textarea&apos;).placeholder();</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;![endif]--&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="解决IE8不支持background-size属性"><a href="#解决IE8不支持background-size属性" class="headerlink" title="解决IE8不支持background-size属性"></a>解决IE8不支持background-size属性</h2><p>background-size时css3的属性，所以ie8不支持。可以采用滤镜来支持。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;strong&gt;background-image: url(&apos;file:///F:/test/images/flashbg.jpg&apos;);</span><br><span class="line">background-size: cover;</span><br><span class="line">filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=&apos;file:///F:/test/images/flashbg.jpg&apos;,  sizingMethod=&apos;scale&apos;);&lt;/strong&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这样就可以让IE也实现background-size:100%100%的效果了，<strong>注意这两个路径要一样，并且是绝对路径</strong>。</p>
+<p>但是需要全路径,也可以采用backgroundsize.min.htc,这个可以在<a href="https://github.com/louisremi/background-size-polyfill" target="_blank" rel="noopener">https://github.com/louisremi/background-size-polyfill</a>拷贝或者下载。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">    height: 100%;</span><br><span class="line">    margin: 0;</span><br><span class="line">    background: url(images/126.jpg) center no-repeat;</span><br><span class="line">    background-size: cover;</span><br><span class="line">    -ms-behavior: url(backgroundsize.min.htc);</span><br><span class="line">    behavior: url(backgroundsize.min.htc);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> <strong>注意</strong>: background-size: cover;需要设置，而且不能用100% 100%等的样式。<br>这样的央视chrome和ie都是兼容的</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://linjiaya.com/linjia.github.io/linjia.github.io/2018/03/25/杂记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -438,10 +703,7 @@
 <blockquote>
 <p>this.$router.push({name:’Hello2’,params:{id:123}}) // -&gt; /Hello2/123<br>this.$router.replace({path:<code>Hello/Hello2/${1234}</code>})</p>
 </blockquote>
-<p><strong>跳转的时候写name比较好，不会重复添加路径</strong></p>
-<blockquote>
-<p>this.$router.replace({name:’someEG’});</p>
-</blockquote>
+<p><strong>跳转的时候写name比较好，不会重复添加路径</strong><br><code>this.$router.replace({name:&#39;someEG&#39;});</code></p>
 <h2 id="多试图匹配"><a href="#多试图匹配" class="headerlink" title="多试图匹配"></a>多试图匹配</h2><p>js:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">export default new LinRouter (&#123;</span><br><span class="line">  routes: &#123;</span><br><span class="line">    path: &apos;/&apos;,</span><br><span class="line">      components: &#123;</span><br><span class="line">        default: Hello,</span><br><span class="line">        header: Header,</span><br><span class="line">        footer: Footer </span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 <p>html:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-view name=&quot;header&quot;&gt;&lt;/router-view&gt;</span><br><span class="line">&lt;router-view name=&quot;footer&quot;&gt;&lt;/router-view&gt;</span><br></pre></td></tr></table></figure></p>
 <p><img src="/linjia.github.io/2018/03/25/vue-route-小记/multiple_view_route.png" alt="只有路径在&#39;/&#39;时才会出现"></p>
@@ -571,19 +833,16 @@
 <blockquote>
 <p>即将要安装vue2.x版本的模板<br>如果要使用vue1.x 请使用命令vue init webpack#1.0 firstVue<br>下载vuejs模板失败，出现这个问题，应该是npm不稳定造成的，请跟换为淘宝镜像cnpm</p>
 </blockquote>
-<p>使用以下命令安装cnpm<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure></p>
-<p>安装好了以后，请直接使用以下命令重新安装下vue-cli<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g vue-cli</span><br></pre></td></tr></table></figure></p>
-<p>重新再执行以下命令试试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vue init webpack firstVue</span><br></pre></td></tr></table></figure></p>
+<p>使用以下命令安装cnpm<br><code>$ npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p>
+<p>安装好了以后，请直接使用以下命令重新安装下vue-cli<br><code>$ cnpm install -g vue-cli</code></p>
+<p>重新再执行以下命令试试<br><code>$ vue init webpack firstVue</code></p>
 <p>安装的vue是可以选择是否安装vue-router的，会自动建好router文件夹</p>
-<h2 id="bootstrap的引入"><a href="#bootstrap的引入" class="headerlink" title="bootstrap的引入"></a>bootstrap的引入</h2><p>首先下载bootstrap<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i bootstrap --save</span><br></pre></td></tr></table></figure></p>
-<p>再在main.js中写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import &apos;bootstrap/dist/css/bootstrap.min.css&apos;</span><br><span class="line">import &apos;bootstrap/dist/js/bootstrap.min.js&apos;</span><br></pre></td></tr></table></figure></p>
-<h2 id="elementUI的引入"><a href="#elementUI的引入" class="headerlink" title="elementUI的引入"></a>elementUI的引入</h2><p>下载elementUI<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i element-ui -S</span><br></pre></td></tr></table></figure></p>
-<p>在main.js中写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// ElementUI</span><br><span class="line">import ElementUI from &apos;element-ui&apos;</span><br><span class="line">import &apos;element-ui/lib/theme-chalk/index.css&apos;</span><br><span class="line">Vue.use(ElementUI)</span><br></pre></td></tr></table></figure></p>
-<h2 id="axios的引入"><a href="#axios的引入" class="headerlink" title="axios的引入"></a>axios的引入</h2><p>下载axios<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i axios —save</span><br></pre></td></tr></table></figure></p>
+<h2 id="bootstrap的引入"><a href="#bootstrap的引入" class="headerlink" title="bootstrap的引入"></a>bootstrap的引入</h2><p>首先下载bootstrap<br><code>npm i bootstrap --save</code><br>再在main.js中写<br><code>import &#39;bootstrap/dist/css/bootstrap.min.css&#39;</code><br><code>import &#39;bootstrap/dist/js/bootstrap.min.js&#39;</code></p>
+<h2 id="elementUI的引入"><a href="#elementUI的引入" class="headerlink" title="elementUI的引入"></a>elementUI的引入</h2><p>下载elementUI<br><code>npm i element-ui -S</code><br>在main.js中写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// ElementUI</span><br><span class="line">import ElementUI from &apos;element-ui&apos;</span><br><span class="line">import &apos;element-ui/lib/theme-chalk/index.css&apos;</span><br><span class="line">Vue.use(ElementUI)</span><br></pre></td></tr></table></figure></p>
+<h2 id="axios的引入"><a href="#axios的引入" class="headerlink" title="axios的引入"></a>axios的引入</h2><p>下载axios<br><code>npm i axios —save</code></p>
 <p>在main.js中写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import axios from &apos;axios&apos;</span><br><span class="line">Vue.prototype.$ajax = axios</span><br></pre></td></tr></table></figure></p>
-<h2 id="less的引入"><a href="#less的引入" class="headerlink" title="less的引入"></a>less的引入</h2><p>安装less依赖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install less less-loader --save</span><br></pre></td></tr></table></figure></p>
-<p>修改webpack.config.js文件，配置loader加载依赖，让其支持外部的less,在原来的代码上添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">test: /\.less$/,</span><br><span class="line">loader: &quot;style-loader!css-loader!less-loader&quot;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
-<p>现在基本上已经安装完成了，然后在使用的时候在style标签里加上lang=”less”里面就可以写less的代码了(style标签里加上 scoped 为只在此作用域 有效)<br>（或者<br>@import ‘./index.less’; //引入全局less文件<br>）。</p>
+<h2 id="less的引入"><a href="#less的引入" class="headerlink" title="less的引入"></a>less的引入</h2><p>安装less依赖<br><code>npm install less less-loader --save</code><br>修改webpack.config.js文件，配置loader加载依赖，让其支持外部的less,在原来的代码上添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    test: /\.less$/,</span><br><span class="line">    loader: &quot;style-loader!css-loader!less-loader&quot;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<p>现在基本上已经安装完成了，然后在使用的时候在style标签里加上lang=”less”里面就可以写less的代码了(style标签里加上 scoped 为只在此作用域 有效)（或者@import ‘./index.less’; //引入全局less文件）。</p>
 
           
         
@@ -665,7 +924,7 @@
               
                 <a href="/linjia.github.io/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -678,7 +937,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
