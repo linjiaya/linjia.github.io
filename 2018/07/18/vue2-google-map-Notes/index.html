@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Google Map,vue," />
 
 
 
@@ -86,17 +86,20 @@
 
 
 
-<meta name="description" content="一些学习笔记和问题规整">
+<meta name="description" content="一开始呢看了google map的api，用纯js写都还可以，然后把，一要用vue写就感觉总有那里奇奇怪怪，走不通。在这里记一下，我目前会的一些解决办法。 我看的是xyjyeah这个人的，讲的呢我感觉有点不详细了，有可能是我没看到或者理解能力太差了。不过呢，我大致看了一下代码。里面有些例子啥的，看看还是明白怎么用的了。要是哪里不对啥的，就跟我说哈，因为vue也不太会。 &amp;lt;gmap-map">
+<meta name="keywords" content="Google Map,vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue2_google_map_Notes">
+<meta property="og:title" content="vue2-google-map 用的时候的一些问题">
 <meta property="og:url" content="http://linjiaya.com/linjia.github.io/2018/07/18/vue2-google-map-Notes/index.html">
 <meta property="og:site_name" content="林佳&#39;s Blog">
-<meta property="og:description" content="一些学习笔记和问题规整">
+<meta property="og:description" content="一开始呢看了google map的api，用纯js写都还可以，然后把，一要用vue写就感觉总有那里奇奇怪怪，走不通。在这里记一下，我目前会的一些解决办法。 我看的是xyjyeah这个人的，讲的呢我感觉有点不详细了，有可能是我没看到或者理解能力太差了。不过呢，我大致看了一下代码。里面有些例子啥的，看看还是明白怎么用的了。要是哪里不对啥的，就跟我说哈，因为vue也不太会。 &amp;lt;gmap-map">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-18T06:05:00.000Z">
+<meta property="og:image" content="http://linjiaya.com/linjia.github.io/2018/07/18/googlemap_drawElement_note/dash_circle.png">
+<meta property="og:updated_time" content="2018-07-18T06:41:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue2_google_map_Notes">
-<meta name="twitter:description" content="一些学习笔记和问题规整">
+<meta name="twitter:title" content="vue2-google-map 用的时候的一些问题">
+<meta name="twitter:description" content="一开始呢看了google map的api，用纯js写都还可以，然后把，一要用vue写就感觉总有那里奇奇怪怪，走不通。在这里记一下，我目前会的一些解决办法。 我看的是xyjyeah这个人的，讲的呢我感觉有点不详细了，有可能是我没看到或者理解能力太差了。不过呢，我大致看了一下代码。里面有些例子啥的，看看还是明白怎么用的了。要是哪里不对啥的，就跟我说哈，因为vue也不太会。 &amp;lt;gmap-map">
+<meta name="twitter:image" content="http://linjiaya.com/linjia.github.io/2018/07/18/googlemap_drawElement_note/dash_circle.png">
 
 
 
@@ -132,7 +135,7 @@
 
 
 
-  <title>vue2_google_map_Notes | 林佳's Blog</title>
+  <title>vue2-google-map 用的时候的一些问题 | 林佳's Blog</title>
   
 
 
@@ -266,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vue2_google_map_Notes</h1>
+          <h1 class="post-title" itemprop="name headline">vue2-google-map 用的时候的一些问题</h1>
         
 
         <div class="post-meta">
@@ -316,7 +319,17 @@
       
 
       
-        
+        <p>一开始呢看了google map的api，用纯js写都还可以，然后把，一要用vue写就感觉总有那里奇奇怪怪，走不通。在这里记一下，我目前会的一些解决办法。</p>
+<p>我看的是<a href="https://github.com/xkjyeah/vue-google-maps" target="_blank" rel="noopener">xyjyeah</a>这个人的，讲的呢我感觉有点不详细了，有可能是我没看到或者理解能力太差了。不过呢，我大致看了一下代码。里面有些例子啥的，看看还是明白怎么用的了。要是哪里不对啥的，就跟我说哈，因为vue也不太会。</p>
+<h2 id="lt-gmap-map-gt-标签"><a href="#lt-gmap-map-gt-标签" class="headerlink" title="&lt;gmap-map&gt;标签"></a>&lt;gmap-map&gt;标签</h2><p>这个是最大的标签咯，反正是包在外面的，所有地图上的啥都是在这个标签里面写。<br>属性呢，只给了 <code>center</code>、<code>zoom</code>、<code>heading</code>、<code>mapTypeId</code>、<code>tilt</code>。出了这些之外的属性，就在<code>option</code>这个属性里面加，怎么加呢？<code>option</code>是个对象，以对象的形式加进去。要加什么就要看googlemap api官网上面怎么说啦。</p>
+<p>那我下面给个例子哈</p>
+<p>html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">gmap-map</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:center</span>=<span class="string">"center"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:zoom</span>=<span class="string">17</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:mapTypeId</span>=<span class="string">"mapTypeId"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:options</span>=<span class="string">"mapOption"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">ref</span>=<span class="string">"map"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">style</span>=<span class="string">"width: 100%; height: 100%"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">gmap-map</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>javascript</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这个当然是再data里面的啦，要不computed啥的，反正你定义好啦</span></span><br><span class="line"><span class="comment">// 我下面写的这些属性，官网里面都有的，看不懂的，可以去看看哦</span></span><br><span class="line">mapOption: &#123;</span><br><span class="line">  streetViewControl: <span class="literal">false</span>,</span><br><span class="line">  scaleControl: <span class="literal">false</span>,</span><br><span class="line">  zoomControl: <span class="literal">true</span>,</span><br><span class="line">  scrollwheel: <span class="literal">false</span>,<span class="comment">//(禁止滚轮放大)</span></span><br><span class="line">  disableDoubleClickZoom: <span class="literal">true</span>,<span class="comment">// 禁止双击放大</span></span><br><span class="line">  mapTypeControlOptions: &#123; <span class="attr">position</span>: google.maps.ControlPosition.RIGHT_BOTTOM &#125;,</span><br><span class="line">  zoomControlOptions: &#123; <span class="attr">position</span>: google.maps.ControlPosition.RIGHT_BOTTOM &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然了，你不想分开成html js写也可以，只是我觉得如果太多还是拿出来方便看一点了。</p>
+<h2 id="lt-gmap-circle-gt-标签"><a href="#lt-gmap-circle-gt-标签" class="headerlink" title="&lt;gmap-circle&gt;标签"></a>&lt;gmap-circle&gt;标签</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 这个是虚线圆没法填充内部，画一个半透明的200圆 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">gmap-circle</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:center</span>=<span class="string">"center"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:radius</span>=<span class="string">"200"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:options</span>=<span class="string">"&#123;strokeColor:'white',strokeOpacity: 0, stokeWeight: 0,fillColor: '#848B94',fillOpacity: 0.45&#125;"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">gmap-circle</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--因为虚线只能用polyline画，所以用polyline画路径为圆的虚线 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">gmap-polyline</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:center</span>=<span class="string">"center"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:path</span>=<span class="string">"dashPath"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:options</span>=<span class="string">"dashOption"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">gmap-polyline</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>记得上一篇里面画虚线圆部分那张图吗，算了，懒了把！记不住又懒得翻。那我给你找出来<br><img src="/linjia.github.io/2018/07/18/vue2-google-map-Notes/../googlemap_drawElement_note/dash_circle.png" alt="虚线圆"></p>
+
       
     </div>
     
@@ -330,6 +343,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/linjia.github.io/tags/Google-Map/" rel="tag"># Google Map</a>
+          
+            <a href="/linjia.github.io/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
       
 
       
@@ -400,8 +421,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -472,6 +502,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-gmap-map-gt-标签"><span class="nav-number">1.</span> <span class="nav-text">&lt;gmap-map&gt;标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-gmap-circle-gt-标签"><span class="nav-number">2.</span> <span class="nav-text">&lt;gmap-circle&gt;标签</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
