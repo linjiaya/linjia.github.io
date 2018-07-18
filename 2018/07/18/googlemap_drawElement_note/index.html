@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/linjia.github.io/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/linjia.github.io/lib/pace/pace-theme-bounce.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/linjia.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/linjia.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/linjia.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/linjia.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/linjia.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/linjia.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/linjia.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Google Map," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="以下我只列举一些用到的例子啦，详情可以去 GoogleMap API官网上面看了。 画圆 123456789101112131415161718192021222324function initMap() &amp;#123;  // Create the map.  var map = new google.maps.Map(document.getElementById(&apos;map&apos;), &amp;#123;">
+<meta name="keywords" content="Google Map">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google Map 画地图上一些元素的笔记">
+<meta property="og:url" content="http://linjiaya.com/linjia.github.io/2018/07/18/googlemap_drawElement_note/index.html">
+<meta property="og:site_name" content="林佳&#39;s Blog">
+<meta property="og:description" content="以下我只列举一些用到的例子啦，详情可以去 GoogleMap API官网上面看了。 画圆 123456789101112131415161718192021222324function initMap() &amp;#123;  // Create the map.  var map = new google.maps.Map(document.getElementById(&apos;map&apos;), &amp;#123;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://linjiaya.com/linjia.github.io/2018/07/18/googlemap_drawElement_note/circle.png">
+<meta property="og:image" content="http://linjiaya.com/linjia.github.io/2018/07/18/googlemap_drawElement_note/dash.png">
+<meta property="og:image" content="http://linjiaya.com/linjia.github.io/2018/07/18/googlemap_drawElement_note/dash_circle.png">
+<meta property="og:image" content="http://linjiaya.com/linjia.github.io/2018/07/18/googlemap_drawElement_note/arrow_dash.png">
+<meta property="og:updated_time" content="2018-07-18T05:45:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google Map 画地图上一些元素的笔记">
+<meta name="twitter:description" content="以下我只列举一些用到的例子啦，详情可以去 GoogleMap API官网上面看了。 画圆 123456789101112131415161718192021222324function initMap() &amp;#123;  // Create the map.  var map = new google.maps.Map(document.getElementById(&apos;map&apos;), &amp;#123;">
+<meta name="twitter:image" content="http://linjiaya.com/linjia.github.io/2018/07/18/googlemap_drawElement_note/circle.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/linjia.github.io/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://linjiaya.com/linjia.github.io/2018/07/18/googlemap_drawElement_note/"/>
+
+
+
+
+
+  <title>Google Map 画地图上一些元素的笔记 | 林佳's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/linjia.github.io/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">林佳's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/linjia.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/linjia.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/linjia.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linjiaya.com/linjia.github.io/linjia.github.io/2018/07/18/googlemap_drawElement_note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="林佳">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/linjia.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="林佳's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Google Map 画地图上一些元素的笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-18T09:57:41+08:00">
+                2018-07-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>以下我只列举一些用到的例子啦，详情可以去 <a href="https://developers.google.com/maps/documentation/javascript/reference/3/" target="_blank" rel="noopener">GoogleMap API官网</a>上面看了。</p>
+<h2 id="画圆"><a href="#画圆" class="headerlink" title="画圆"></a>画圆</h2><p><img src="/linjia.github.io/2018/07/18/googlemap_drawElement_note/circle.png" alt="地图画圆图片"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initMap</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Create the map.</span></span><br><span class="line">  <span class="keyword">var</span> map = <span class="keyword">new</span> google.maps.Map(<span class="built_in">document</span>.getElementById(<span class="string">'map'</span>), &#123;</span><br><span class="line">    zoom: <span class="number">4</span>,</span><br><span class="line">    center: &#123;<span class="attr">lat</span>: <span class="number">30.0</span>, <span class="attr">lng</span>: <span class="number">120.0</span>&#125;,</span><br><span class="line">    mapTypeId: <span class="string">'hybrid'</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Construct the circle for each value in citymap.</span></span><br><span class="line">  <span class="comment">// Note: We scale the area of the circle based on the population.</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> city <span class="keyword">in</span> citymap) &#123;</span><br><span class="line">    <span class="comment">// Add the circle for this city to the map.</span></span><br><span class="line">    <span class="keyword">var</span> cityCircle = <span class="keyword">new</span> google.maps.Circle(&#123;</span><br><span class="line">      strokeColor: <span class="string">'#fff'</span>,</span><br><span class="line">      strokeOpacity: <span class="number">0.8</span>,</span><br><span class="line">      strokeWeight: <span class="number">2</span>,</span><br><span class="line">      fillColor: <span class="string">'#f00'</span>,</span><br><span class="line">      fillOpacity: <span class="number">0</span>,</span><br><span class="line">      map: map,</span><br><span class="line">      center: &#123;<span class="attr">lat</span>: <span class="number">30</span>, <span class="attr">lng</span>: <span class="number">120</span>&#125;,</span><br><span class="line">      radius: <span class="number">100</span>,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其实就是用了<code>google.maps.Circle</code>方法</p>
+<h2 id="画虚线"><a href="#画虚线" class="headerlink" title="画虚线"></a>画虚线</h2><p><img src="/linjia.github.io/2018/07/18/googlemap_drawElement_note/dash.png" alt="地图虚线折线图片"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> map;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initMap</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  map = <span class="keyword">new</span> google.maps.Map(<span class="built_in">document</span>.getElementById(<span class="string">'map'</span>), &#123;</span><br><span class="line">    zoom: <span class="number">4</span>,</span><br><span class="line">    center: &#123;<span class="attr">lat</span>: <span class="number">-18.142599</span>, <span class="attr">lng</span>: <span class="number">178.431</span>&#125;,</span><br><span class="line">    mapTypeId: <span class="string">'hybrid'</span></span><br><span class="line">  &#125;);</span><br><span class="line">  drawPrePath()</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">drawPrePath</span>(<span class="params">array,color</span>)</span>&#123;  </span><br><span class="line">  <span class="keyword">var</span> sorrow=&#123;  </span><br><span class="line">  path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW <span class="comment">//arrow  </span></span><br><span class="line">  &#125;;  </span><br><span class="line">  <span class="keyword">var</span> lineSymbol = &#123;  </span><br><span class="line">  path: <span class="string">'M 0,-1 0,1'</span>,  </span><br><span class="line">  strokeOpacity: <span class="number">1</span>,  </span><br><span class="line">  scale: <span class="number">3</span>  </span><br><span class="line">  &#125;;  </span><br><span class="line">  <span class="keyword">var</span> pathCoord = [  </span><br><span class="line">  <span class="keyword">new</span> google.maps.LatLng(<span class="number">37.772323</span>, <span class="number">-122.214897</span>),<span class="keyword">new</span> google.maps.LatLng(<span class="number">21.291982</span>, <span class="number">-157.821856</span>),  </span><br><span class="line">  <span class="keyword">new</span> google.maps.LatLng(<span class="number">-18.142599</span>, <span class="number">178.431</span>),<span class="keyword">new</span> google.maps.LatLng(<span class="number">-27.46758</span>, <span class="number">153.027892</span>)  </span><br><span class="line">  ];  </span><br><span class="line">  path = <span class="keyword">new</span> google.maps.Polyline(&#123;  </span><br><span class="line">    path: pathCoord ,  </span><br><span class="line">    strokeColor:<span class="string">"#fff"</span>,  </span><br><span class="line">    strokeOpacity: <span class="number">0</span>,  </span><br><span class="line">    strokeWeight: <span class="number">2</span>,  </span><br><span class="line">    icons:[&#123;<span class="attr">icon</span>:lineSymbol,<span class="attr">offset</span>: <span class="string">'0'</span>,<span class="attr">repeat</span>: <span class="string">'20px'</span>&#125;],  </span><br><span class="line">    map:map  </span><br><span class="line">  &#125;);  </span><br><span class="line">  path.setMap(map);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这段代码是用svg的方式来画虚线<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> lineSymbol = &#123;  </span><br><span class="line">  path: <span class="string">'M 0,-1 0,1'</span>,  </span><br><span class="line">  strokeOpacity: <span class="number">1</span>,  </span><br><span class="line">  scale: <span class="number">3</span>  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>主要是用的<code>google.maps.Polyline</code>方法。注意：<code>icons</code>属性中的以下几个属性。<code>icon</code>是设置线段样式的。<code>offset</code>是设置偏移量，从哪里开始什么的，比如说：要画一个虚线的箭头的话，这边就可以用100%，意思是在终点的地方加一个箭头。当然了，要加箭头不仅仅这样就可以了。讲完这点我就再讲下怎么画虚线箭头。<code>repeat</code>是虚线之间的间隔度。</p>
+<h2 id="画虚线圆"><a href="#画虚线圆" class="headerlink" title="画虚线圆"></a>画虚线圆</h2><p><img src="/linjia.github.io/2018/07/18/googlemap_drawElement_note/dash_circle.png" alt="虚线圆"></p>
+<p>GoogleMap里面没有直接画虚线圆的方法，我也是找了好久，度娘基本是没啥用了，后来在外网找到了。其实就是用 <code>google.maps.Polyline</code> 方法画一个圆的路径，那虚线呢，就是上面我说的画虚线的方式啦。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 将圆转成polyline路径 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">drawCircle</span> (<span class="params">point, radius, dir</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> d2r = <span class="built_in">Math</span>.PI / <span class="number">180</span>;   <span class="comment">// 度数到弧度 degrees to radians</span></span><br><span class="line">  <span class="keyword">var</span> r2d = <span class="number">180</span> / <span class="built_in">Math</span>.PI;   <span class="comment">// 弧度到度数 radians to degrees</span></span><br><span class="line">  <span class="comment">/* var earthsradius = 3963; // 3963是以英里为单位的地球半径 3963 is the radius of the earth in miles</span></span><br><span class="line"><span class="comment">  radius = radius / 1609.344; // 英里和米的换算 */</span></span><br><span class="line">  <span class="keyword">var</span> earthsradius = <span class="number">6400000</span>; <span class="comment">// 6400000是以米为单位的地球半径</span></span><br><span class="line">  <span class="keyword">var</span> points = <span class="number">32</span>;</span><br><span class="line">  <span class="comment">// find the raidus in lat/lon</span></span><br><span class="line">  <span class="comment">// 找到纬度/经度的半径</span></span><br><span class="line">  <span class="comment">// radius = radius / 1609.344;// 英里和米的换算</span></span><br><span class="line">  <span class="keyword">var</span> rlat = (radius / earthsradius) * r2d;</span><br><span class="line">  <span class="keyword">var</span> rlng = rlat / <span class="built_in">Math</span>.cos(point.lat() * d2r);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> extp = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">  <span class="keyword">if</span> (dir==<span class="number">1</span>)	&#123;<span class="keyword">var</span> start=<span class="number">0</span>;<span class="keyword">var</span> end=points+<span class="number">1</span>&#125; <span class="comment">// 一个额外的，在这里确保我们连接的 one extra here makes sure we connect the</span></span><br><span class="line">  <span class="keyword">else</span> &#123;<span class="keyword">var</span> start=points+<span class="number">1</span>;<span class="keyword">var</span> end=<span class="number">0</span>&#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i=start; (dir==<span class="number">1</span> ? i &lt; end : i &gt; end); i=i+dir) &#123;</span><br><span class="line">    <span class="keyword">var</span> theta = <span class="built_in">Math</span>.PI * (i / (points/<span class="number">2</span>));</span><br><span class="line">    <span class="keyword">var</span> ey = point.lng() + (rlng * <span class="built_in">Math</span>.cos(theta)); <span class="comment">// center a + radius x * cos(theta)</span></span><br><span class="line">    <span class="keyword">var</span> ex = point.lat() + (rlat * <span class="built_in">Math</span>.sin(theta)); <span class="comment">// center b + radius y * sin(theta)</span></span><br><span class="line">    extp.push(<span class="keyword">new</span> google.maps.LatLng(ex, ey));</span><br><span class="line">    <span class="keyword">new</span> google.maps.LatLngBounds().extend(extp[extp.length<span class="number">-1</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> extp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> map = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">var</span> bounds = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Define a symbol using SVG path notation, with an opacity of 1.</span></span><br><span class="line"><span class="keyword">var</span> lineSymbol = &#123;</span><br><span class="line">  path: <span class="string">'M 0,-1 0,1'</span>,</span><br><span class="line">  strokeOpacity: <span class="number">1</span>,</span><br><span class="line">  scale: <span class="number">4</span></span><br><span class="line">&#125;; <span class="comment">//用svg的方式绘制路径</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initMap</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> myOptions = &#123;</span><br><span class="line">    zoom: <span class="number">17</span>,</span><br><span class="line">    center: <span class="keyword">new</span> google.maps.LatLng(<span class="number">30</span>, <span class="number">120</span>),</span><br><span class="line">    mapTypeControl: <span class="literal">true</span>,</span><br><span class="line">    mapTypeControlOptions: &#123;<span class="attr">style</span>: google.maps.MapTypeControlStyle.DROPDOWN_MENU&#125;,</span><br><span class="line">    navigationControl: <span class="literal">true</span>,</span><br><span class="line">    mapTypeId: <span class="string">'hybrid'</span></span><br><span class="line">  &#125;</span><br><span class="line">  map = <span class="keyword">new</span> google.maps.Map(<span class="built_in">document</span>.getElementById(<span class="string">"map_canvas"</span>),myOptions);</span><br><span class="line">  </span><br><span class="line">  bounds = <span class="keyword">new</span> google.maps.LatLngBounds();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> donut = <span class="keyword">new</span> google.maps.Polyline(&#123;</span><br><span class="line">    path: drawCircle(<span class="keyword">new</span> google.maps.LatLng(<span class="number">30</span>, <span class="number">120</span>), <span class="number">200</span>/ <span class="number">1000</span>, <span class="number">1</span>),</span><br><span class="line">    strokeOpacity: <span class="number">0</span>,</span><br><span class="line">    icons: [&#123;</span><br><span class="line">      icon: lineSymbol,</span><br><span class="line">      offset: <span class="string">'0'</span>,</span><br><span class="line">      repeat: <span class="string">'20px'</span></span><br><span class="line">    &#125;],</span><br><span class="line">    strokeColor: <span class="string">"#fff"</span>,</span><br><span class="line">    strokeWeight: <span class="number">2</span>,</span><br><span class="line">    strokeOpacity: <span class="number">0.35</span>,</span><br><span class="line">    fillColor: <span class="string">"#fff"</span>,</span><br><span class="line">    fillOpacity: <span class="number">0</span></span><br><span class="line">  &#125;);</span><br><span class="line">  donut.setMap(map);</span><br><span class="line">  map.fitBounds(bounds);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>drawCircle()</code> 方法呢是换算地球半径然后把路径变成圆的办法。<code>point</code>就是圆心啦，<code>radius</code>是半径了，<code>dir</code>是一个什么额外的，在这里确认连接什么的，反正我就是传了1就行。</p>
+<h2 id="画虚线箭头"><a href="#画虚线箭头" class="headerlink" title="画虚线箭头"></a>画虚线箭头</h2><p><img src="/linjia.github.io/2018/07/18/googlemap_drawElement_note/arrow_dash.png" alt="虚线箭头图片"></p>
+<p>重点呢就是怎样设置icons，我这里只把重点部分列出来，其他的不变就行了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">path = <span class="keyword">new</span> google.maps.Polyline(&#123;  </span><br><span class="line">  path: pathCoord ,  </span><br><span class="line">  <span class="comment">/* 注意看，这里是重点 */</span></span><br><span class="line">  icons:[&#123;</span><br><span class="line">      icon:&#123;</span><br><span class="line">        path: <span class="string">'M 0,-1 0,1'</span>,  </span><br><span class="line">        strokeOpacity: <span class="number">1</span>,  </span><br><span class="line">        scale: <span class="number">4</span>  </span><br><span class="line">      &#125;,</span><br><span class="line">      offset: <span class="string">'0%'</span>,</span><br><span class="line">      repeat: <span class="string">'20px'</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">      icon: &#123;</span><br><span class="line">        path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,</span><br><span class="line">        strokeOpacity: <span class="number">1</span>,  </span><br><span class="line">        fillColor: <span class="string">'#58C2E4'</span>, </span><br><span class="line">        fillOpacity: <span class="number">1</span>,</span><br><span class="line">        scale: <span class="number">4</span></span><br><span class="line">      &#125;,</span><br><span class="line">      offset: <span class="string">'90%'</span></span><br><span class="line">    &#125;],</span><br><span class="line">    strokeColor: <span class="string">'#58C2E4'</span>,</span><br><span class="line">    strokeOpacity: <span class="number">0</span>,  </span><br><span class="line">    strokeWeight: <span class="number">4</span>,</span><br><span class="line">  map:map  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><code>icons</code>是一个数组的吧，之前画虚线的时候，数组里面只有一个画虚线的对象，现在其实就是再加一个画箭头的对象而已。简单吧！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/linjia.github.io/tags/Google-Map/" rel="tag"># Google Map</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/linjia.github.io/2018/03/26/js_note/" rel="next" title="js 小记">
+                <i class="fa fa-chevron-left"></i> js 小记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/linjia.github.io/2018/07/18/vue2-google-map-Notes/" rel="prev" title="vue2_google_map_Notes">
+                vue2_google_map_Notes <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/linjia.github.io/images/avatar.gif"
+                alt="林佳" />
+            
+              <p class="site-author-name" itemprop="name">林佳</p>
+              <p class="site-description motion-element" itemprop="description">一些学习笔记和问题规整</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/linjia.github.io/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/linjia.github.io/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/linjiaya" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:linjiaya163@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#画圆"><span class="nav-number">1.</span> <span class="nav-text">画圆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#画虚线"><span class="nav-number">2.</span> <span class="nav-text">画虚线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#画虚线圆"><span class="nav-number">3.</span> <span class="nav-text">画虚线圆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#画虚线箭头"><span class="nav-number">4.</span> <span class="nav-text">画虚线箭头</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">林佳</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/linjia.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/linjia.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/linjia.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/linjia.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/linjia.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/linjia.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/linjia.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/linjia.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/linjia.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/linjia.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/linjia.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/linjia.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/linjia.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

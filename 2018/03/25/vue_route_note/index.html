@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Google Map," />
+  <meta name="keywords" content="vue," />
 
 
 
@@ -86,20 +86,20 @@
 
 
 
-<meta name="description" content="以下我只列举一些用到的例子啦，详情可以去 GoogleMap API官网上面看了。 画圆123456789101112131415161718192021222324function initMap() &amp;#123;  // Create the map.  var map = new google.maps.Map(document.getElementById(&apos;map&apos;), &amp;#123;">
-<meta name="keywords" content="Google Map">
+<meta name="description" content="引入router文件的index.js中  import LinRouter from ‘vue-router’ // 引入vue-routerimport Hello from ‘@components/Hello’ // 定义路由组件   Vue.use(LinRouter) // vue使用vue-router,这句话一定要有export default new LinRouter ({ /">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Google_map 笔记">
-<meta property="og:url" content="http://linjiaya.com/linjia.github.io/2018/07/18/Google-map-笔记/index.html">
+<meta property="og:title" content="vue-route 小记">
+<meta property="og:url" content="http://linjiaya.com/linjia.github.io/2018/03/25/vue_route_note/index.html">
 <meta property="og:site_name" content="林佳&#39;s Blog">
-<meta property="og:description" content="以下我只列举一些用到的例子啦，详情可以去 GoogleMap API官网上面看了。 画圆123456789101112131415161718192021222324function initMap() &amp;#123;  // Create the map.  var map = new google.maps.Map(document.getElementById(&apos;map&apos;), &amp;#123;">
+<meta property="og:description" content="引入router文件的index.js中  import LinRouter from ‘vue-router’ // 引入vue-routerimport Hello from ‘@components/Hello’ // 定义路由组件   Vue.use(LinRouter) // vue使用vue-router,这句话一定要有export default new LinRouter ({ /">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://linjiaya.com/linjia.github.io/2018/07/18/Google-map-笔记/circle.png">
-<meta property="og:updated_time" content="2018-07-18T02:06:06.000Z">
+<meta property="og:image" content="http://linjiaya.com/linjia.github.io/2018/03/25/vue_route_note/multiple_view_route.png">
+<meta property="og:updated_time" content="2018-07-18T05:57:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Google_map 笔记">
-<meta name="twitter:description" content="以下我只列举一些用到的例子啦，详情可以去 GoogleMap API官网上面看了。 画圆123456789101112131415161718192021222324function initMap() &amp;#123;  // Create the map.  var map = new google.maps.Map(document.getElementById(&apos;map&apos;), &amp;#123;">
-<meta name="twitter:image" content="http://linjiaya.com/linjia.github.io/2018/07/18/Google-map-笔记/circle.png">
+<meta name="twitter:title" content="vue-route 小记">
+<meta name="twitter:description" content="引入router文件的index.js中  import LinRouter from ‘vue-router’ // 引入vue-routerimport Hello from ‘@components/Hello’ // 定义路由组件   Vue.use(LinRouter) // vue使用vue-router,这句话一定要有export default new LinRouter ({ /">
+<meta name="twitter:image" content="http://linjiaya.com/linjia.github.io/2018/03/25/vue_route_note/multiple_view_route.png">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://linjiaya.com/linjia.github.io/2018/07/18/Google-map-笔记/"/>
+  <link rel="canonical" href="http://linjiaya.com/linjia.github.io/2018/03/25/vue_route_note/"/>
 
 
 
 
 
-  <title>Google_map 笔记 | 林佳's Blog</title>
+  <title>vue-route 小记 | 林佳's Blog</title>
   
 
 
@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://linjiaya.com/linjia.github.io/linjia.github.io/2018/07/18/Google-map-笔记/">
+    <link itemprop="mainEntityOfPage" href="http://linjiaya.com/linjia.github.io/linjia.github.io/2018/03/25/vue_route_note/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林佳">
@@ -269,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Google_map 笔记</h1>
+          <h1 class="post-title" itemprop="name headline">vue-route 小记</h1>
         
 
         <div class="post-meta">
@@ -281,8 +281,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-18T09:57:41+08:00">
-                2018-07-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-25T18:15:32+08:00">
+                2018-03-25
               </time>
             
 
@@ -319,9 +319,25 @@
       
 
       
-        <p>以下我只列举一些用到的例子啦，详情可以去 <a href="https://developers.google.com/maps/documentation/javascript/reference/3/" target="_blank" rel="noopener">GoogleMap API官网</a>上面看了。</p>
-<h2 id="画圆"><a href="#画圆" class="headerlink" title="画圆"></a>画圆</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initMap</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Create the map.</span></span><br><span class="line">  <span class="keyword">var</span> map = <span class="keyword">new</span> google.maps.Map(<span class="built_in">document</span>.getElementById(<span class="string">'map'</span>), &#123;</span><br><span class="line">    zoom: <span class="number">4</span>,</span><br><span class="line">    center: &#123;<span class="attr">lat</span>: <span class="number">30.0</span>, <span class="attr">lng</span>: <span class="number">120.0</span>&#125;,</span><br><span class="line">    mapTypeId: <span class="string">'hybrid'</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Construct the circle for each value in citymap.</span></span><br><span class="line">  <span class="comment">// Note: We scale the area of the circle based on the population.</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> city <span class="keyword">in</span> citymap) &#123;</span><br><span class="line">    <span class="comment">// Add the circle for this city to the map.</span></span><br><span class="line">    <span class="keyword">var</span> cityCircle = <span class="keyword">new</span> google.maps.Circle(&#123;</span><br><span class="line">      strokeColor: <span class="string">'#fff'</span>,</span><br><span class="line">      strokeOpacity: <span class="number">0.8</span>,</span><br><span class="line">      strokeWeight: <span class="number">2</span>,</span><br><span class="line">      fillColor: <span class="string">'#f00'</span>,</span><br><span class="line">      fillOpacity: <span class="number">0</span>,</span><br><span class="line">      map: map,</span><br><span class="line">      center: &#123;<span class="attr">lat</span>: <span class="number">30</span>, <span class="attr">lng</span>: <span class="number">120</span>&#125;,</span><br><span class="line">      radius: <span class="number">100</span>,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/linjia.github.io/2018/07/18/Google-map-笔记/circle.png" alt="地图画圆图片"></p>
+        <h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>router文件的index.js中</p>
+<blockquote>
+<p>import <strong>LinRouter</strong> from ‘vue-router’ // 引入vue-router<br>import Hello from ‘@components/Hello’ // 定义路由组件</p>
+</blockquote>
+<blockquote>
+<p>Vue.use(<strong>LinRouter</strong>) // vue使用vue-router,这句话一定要有<br>export default new <strong>LinRouter</strong> ({ //路由参数配置<br>  [{<br>    path: ‘/‘,<br>    name: ‘hello’,<br>    component: Hello<br>  }]<br>})<br>这三个<strong>LinRouter</strong>必须一样</p>
+</blockquote>
+<p>在main.js中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import router from &apos;./router&apos; // 引入路由配置文件</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  router, // 启动路由</span><br><span class="line">  components: &#123; App &#125;,</span><br><span class="line">  template: &apos;&lt;App/&gt;&apos;,</span><br><span class="line">  render: h =&gt; h(App)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>如果这个在别的文件定义，记得引入有router配置的文件</p>
+<p>html部分<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;</span><br><span class="line">&lt;!-- 使用 router-link 组建来导航. --&gt;</span><br><span class="line">&lt;!-- 通过传入 `to` 属性制定链接. --&gt;</span><br><span class="line">&lt;!-- &lt;router-link&gt; 默认会被渲染成一个 `&lt;a&gt;` 标签 --&gt;</span><br><span class="line">&lt;router-link to=&quot;/foo&quot;&gt;Go to Foo&lt;/router-link&gt;</span><br><span class="line">&lt;router-link to=&quot;/bar&quot;&gt;Go to Bar&lt;/router-link&gt;</span><br><span class="line">&lt;/p&gt;</span><br><span class="line">&lt;!-- 路由出口 --&gt;</span><br><span class="line">&lt;!-- 路由匹配到的组建将会渲染在这里 --&gt;</span><br><span class="line">&lt;router-view&gt;&lt;/router-view&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="动态路由分配"><a href="#动态路由分配" class="headerlink" title="动态路由分配"></a>动态路由分配</h2><p>一个<strong>路径参数</strong>使用冒号<strong>“:”</strong>标记。当匹配到一个路由时，参数值会被设置到<strong>this.$route.params</strong>，可以在每个组件中使用。<br>除了 <strong>$route.params</strong>外， <strong>$route</strong>对象还提供了其他有用的信息。例如$route.query(如果url中有查询参数)、<strong>$route.hash</strong> 等等。</p>
+<p>$router.replace跟 $router.push 很像，唯一的不同就是，它不会向 history 添加新记录，而是跟它的方法名一样 —— 替换掉当前的 history 记录。</p>
+<blockquote>
+<p>this.$router.push({name:’Hello2’,params:{id:123}}) // -&gt; /Hello2/123<br>this.$router.replace({path:<code>Hello/Hello2/${1234}</code>})</p>
+</blockquote>
+<p><strong>跳转的时候写name比较好，不会重复添加路径</strong><br><code>this.$router.replace({name:&#39;someEG&#39;});</code></p>
+<h2 id="多试图匹配"><a href="#多试图匹配" class="headerlink" title="多试图匹配"></a>多试图匹配</h2><p>js:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">export default new LinRouter (&#123;</span><br><span class="line">  routes: &#123;</span><br><span class="line">    path: &apos;/&apos;,</span><br><span class="line">      components: &#123;</span><br><span class="line">        default: Hello,</span><br><span class="line">        header: Header,</span><br><span class="line">        footer: Footer </span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>html:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-view name=&quot;header&quot;&gt;&lt;/router-view&gt;</span><br><span class="line">&lt;router-view name=&quot;footer&quot;&gt;&lt;/router-view&gt;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/linjia.github.io/2018/03/25/vue_route_note/multiple_view_route.png" alt="只有路径在&#39;/&#39;时才会出现"></p>
 
       
     </div>
@@ -339,7 +355,7 @@
       
         <div class="post-tags">
           
-            <a href="/linjia.github.io/tags/Google-Map/" rel="tag"># Google Map</a>
+            <a href="/linjia.github.io/tags/vue/" rel="tag"># vue</a>
           
         </div>
       
@@ -352,8 +368,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/linjia.github.io/2018/03/26/js-小记/" rel="next" title="js 小记">
-                <i class="fa fa-chevron-left"></i> js 小记
+              <a href="/linjia.github.io/2018/03/22/vue_someNotes/" rel="next" title="vue注意事项">
+                <i class="fa fa-chevron-left"></i> vue注意事项
               </a>
             
           </div>
@@ -361,6 +377,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/linjia.github.io/2018/03/25/mix_note/" rel="prev" title="杂记">
+                杂记 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -441,7 +461,7 @@
               
                 <a href="/linjia.github.io/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -503,7 +523,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#画圆"><span class="nav-number">1.</span> <span class="nav-text">画圆</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引入"><span class="nav-number">1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态路由分配"><span class="nav-number">2.</span> <span class="nav-text">动态路由分配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多试图匹配"><span class="nav-number">3.</span> <span class="nav-text">多试图匹配</span></a></li></ol></div>
             
 
           </div>

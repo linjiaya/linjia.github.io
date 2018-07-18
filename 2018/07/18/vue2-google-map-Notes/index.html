@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="杂," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -86,18 +86,17 @@
 
 
 
-<meta name="description" content="http http是无状态的：是对事物没有记忆能力，缺少状态意味着后续如果需要前面的信息必须重新传。 http是无连接的：每次只处理一个请求，收到客户应答后断开。 http是媒体独立的：基于TCP/IP通信协议传递。  method字段表示对资源传输方式  get 获取post 新增put 更新delete 删除   304： 客户端已经执行了get，但是文件无变化。意义：出现太多的话，会降低搜索">
-<meta name="keywords" content="杂">
+<meta name="description" content="一些学习笔记和问题规整">
 <meta property="og:type" content="article">
-<meta property="og:title" content="杂记">
-<meta property="og:url" content="http://linjiaya.com/linjia.github.io/2018/03/25/杂记/index.html">
+<meta property="og:title" content="vue2_google_map_Notes">
+<meta property="og:url" content="http://linjiaya.com/linjia.github.io/2018/07/18/vue2-google-map-Notes/index.html">
 <meta property="og:site_name" content="林佳&#39;s Blog">
-<meta property="og:description" content="http http是无状态的：是对事物没有记忆能力，缺少状态意味着后续如果需要前面的信息必须重新传。 http是无连接的：每次只处理一个请求，收到客户应答后断开。 http是媒体独立的：基于TCP/IP通信协议传递。  method字段表示对资源传输方式  get 获取post 新增put 更新delete 删除   304： 客户端已经执行了get，但是文件无变化。意义：出现太多的话，会降低搜索">
+<meta property="og:description" content="一些学习笔记和问题规整">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-26T09:11:48.000Z">
+<meta property="og:updated_time" content="2018-07-18T06:05:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="杂记">
-<meta name="twitter:description" content="http http是无状态的：是对事物没有记忆能力，缺少状态意味着后续如果需要前面的信息必须重新传。 http是无连接的：每次只处理一个请求，收到客户应答后断开。 http是媒体独立的：基于TCP/IP通信协议传递。  method字段表示对资源传输方式  get 获取post 新增put 更新delete 删除   304： 客户端已经执行了get，但是文件无变化。意义：出现太多的话，会降低搜索">
+<meta name="twitter:title" content="vue2_google_map_Notes">
+<meta name="twitter:description" content="一些学习笔记和问题规整">
 
 
 
@@ -127,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://linjiaya.com/linjia.github.io/2018/03/25/杂记/"/>
+  <link rel="canonical" href="http://linjiaya.com/linjia.github.io/2018/07/18/vue2-google-map-Notes/"/>
 
 
 
 
 
-  <title>杂记 | 林佳's Blog</title>
+  <title>vue2_google_map_Notes | 林佳's Blog</title>
   
 
 
@@ -250,7 +249,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://linjiaya.com/linjia.github.io/linjia.github.io/2018/03/25/杂记/">
+    <link itemprop="mainEntityOfPage" href="http://linjiaya.com/linjia.github.io/linjia.github.io/2018/07/18/vue2-google-map-Notes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林佳">
@@ -267,7 +266,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">杂记</h1>
+          <h1 class="post-title" itemprop="name headline">vue2_google_map_Notes</h1>
         
 
         <div class="post-meta">
@@ -279,8 +278,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-25T18:21:21+08:00">
-                2018-03-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-18T14:05:00+08:00">
+                2018-07-18
               </time>
             
 
@@ -317,32 +316,7 @@
       
 
       
-        <h2 id="http"><a href="#http" class="headerlink" title="http"></a>http</h2><ul>
-<li>http是无状态的：是对事物没有记忆能力，缺少状态意味着后续如果需要前面的信息必须重新传。</li>
-<li>http是无连接的：每次只处理一个请求，收到客户应答后断开。</li>
-<li><p>http是媒体独立的：基于TCP/IP通信协议传递。</p>
-</li>
-<li><p>method字段表示对资源传输方式</p>
-<blockquote>
-<p><code>get</code> 获取<br><code>post</code> 新增<br><code>put</code> 更新<br><code>delete</code> 删除</p>
-</blockquote>
-</li>
-<li><p><code>304</code>： 客户端已经执行了get，但是文件无变化。<strong>意义</strong>：出现太多的话，会降低搜索引擎抓取频率以及次数，导致网站排名落后。</p>
-</li>
-<li><code>301</code>： 重定向。访问的资源被永久性删除。</li>
-<li><p><code>302</code>： 临时重定向。暂时先用location的url访问，旧的资源还在。</p>
-</li>
-<li><p>重定向与别名<br><strong>重定向</strong>的意思是：当用户访问<strong>/a</strong>，URL将会被替换成<strong>/b</strong>，然后匹配路由为<strong>/b</strong>。<br><strong>/a</strong>的别名就是<strong>/b</strong>。意味着，当用户访问/b时，URL会保持为/b，但是路由匹配则为/a，就像用户访问/a一样。<br><strong>别名</strong>的功能让你可以自由的将UI结构映射到任意的URL，而不是受限于配置的嵌套路由结构。</p>
-</li>
-</ul>
-<h2 id="单向绑定vs双向绑定"><a href="#单向绑定vs双向绑定" class="headerlink" title="单向绑定vs双向绑定"></a>单向绑定vs双向绑定</h2><ul>
-<li>单向数据流其实是没有状态的, 这使得单向绑定能够避免状态管理在复杂度上升时产生的各种问题, 程序的调试会变得相对容易, 但强制要求编码时设计思维的一致性。</li>
-<li>双向数据流是自动管理状态的, 但是在实际应用中会有很多不得不手动处理状态变化的逻辑, 使得程序复杂度上升, 难以调试, 但程序各个部分自成一体, 不强制要求一致的编码。</li>
-<li>如果你的程序需要一个统一的数据源, 应该选择单向数据流, 所有的数据变化都是可观测的, 数据自上而下流动, 即使出问题也很容易找到源头。</li>
-<li>如果你的程序本身有多个数据源, 或者是程序的逻辑本身会产生很多的副作用, 应该选择双向绑定的程序, 将大项目分化为小项目, 逐个击破.</li>
-</ul>
-<p align="right">来源：<a href="https://www.zhihu.com/question/49964363/answer/118720971" target="_blank" rel="noopener">知乎</a></p>
-
+        
       
     </div>
     
@@ -357,12 +331,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/linjia.github.io/tags/杂/" rel="tag"># 杂</a>
-          
-        </div>
-      
 
       
       
@@ -372,8 +340,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/linjia.github.io/2018/03/25/vue-route-小记/" rel="next" title="vue-route 小记">
-                <i class="fa fa-chevron-left"></i> vue-route 小记
+              <a href="/linjia.github.io/2018/07/18/googlemap_drawElement_note/" rel="next" title="Google Map 画地图上一些元素的笔记">
+                <i class="fa fa-chevron-left"></i> Google Map 画地图上一些元素的笔记
               </a>
             
           </div>
@@ -381,10 +349,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/linjia.github.io/2018/03/25/IE问题/" rel="prev" title="IE问题">
-                IE问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -436,17 +400,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -465,7 +420,7 @@
               
                 <a href="/linjia.github.io/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -517,22 +472,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#http"><span class="nav-number">1.</span> <span class="nav-text">http</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单向绑定vs双向绑定"><span class="nav-number">2.</span> <span class="nav-text">单向绑定vs双向绑定</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
