@@ -963,12 +963,12 @@ stopImmediatePropagation()取消事件冒泡，同时阻止当前节点上事件
         
           
           受到html本身的一些限制，像&lt;ul&gt;、&lt;ol&gt;、&lt;table&gt;、&lt;select&gt;这样的元素里允许包含的的元素有限制，而另一些像&lt;option&gt;这样的元素只能出现在某些特定元素的内部。
-方案：使用特殊的is特性
+方案：使用特殊的 is特性
 
 应当注意，如果使用来自一下来源之一的字符串模板，则没有这些限制:
 
 
-&lt;script type=&quot;text/x
+&lt;script type=&quot;text/
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1358,12 +1358,7 @@ get 获取post 新增put 更新delete 删除
       
         
           
-          引入router文件的index.js中
-
-import LinRouter from ‘vue-router’ // 引入vue-routerimport Hello from ‘@components/Hello’ // 定义路由组件
-
-
-Vue.use(LinRouter) // vue使用vue-router,这句话一定要有export default new LinRouter ({ /
+          引入router文件的index.js中123456789101112import LinRouter from 'vue-router' // 引入vue-routerimport Hello from '@components/Hello' // 定义路由组件Vue.use(LinRouter) // vue使用vue-router,这句话一定要有export default new LinR
           ...
           <!--noindex-->
           <div class="post-button text-center">
