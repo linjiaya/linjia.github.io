@@ -86,21 +86,21 @@
 
 
 
-<meta name="description" content="本文参考打造 Vue.js 可复用组件  业务越写越多，组件也来越多，其中慢慢存在很多组件逻辑或者界面有绝大多数是重复或者相似，就使得维护起来特别麻烦了。vue的接口和语法又十分自由，实现一个功能有好多种办法，代码不一样思路不一样，导致各种风格的代码花样百出，没有一个规范性。本文主要列出一些可以参考从不同的方面列举出合理的解决办法。 构成组件组件，是一个具有一定功能，且不同组件间功能相对独立的模块">
+<meta name="description" content="业务越写越多，组件也来越多，其中慢慢存在很多组件逻辑或者界面有绝大多数是重复或者相似，就使得维护起来特别麻烦了。vue的接口和语法又十分自由，实现一个功能有好多种办法，代码不一样思路不一样，导致各种风格的代码花样百出，没有一个规范性。本文主要列出一些可以参考从不同的方面列举出合理的解决办法。 构成组件组件，是一个具有一定功能，且不同组件间功能相对独立的模块。组件可以是一个按钮、一个输入框、一个视频">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue组件如何合理复用">
 <meta property="og:url" content="http://linjiaya.com/linjia.github.io/2018/08/02/vue组件如何合理复用/index.html">
 <meta property="og:site_name" content="林佳&#39;s Blog">
-<meta property="og:description" content="本文参考打造 Vue.js 可复用组件  业务越写越多，组件也来越多，其中慢慢存在很多组件逻辑或者界面有绝大多数是重复或者相似，就使得维护起来特别麻烦了。vue的接口和语法又十分自由，实现一个功能有好多种办法，代码不一样思路不一样，导致各种风格的代码花样百出，没有一个规范性。本文主要列出一些可以参考从不同的方面列举出合理的解决办法。 构成组件组件，是一个具有一定功能，且不同组件间功能相对独立的模块">
+<meta property="og:description" content="业务越写越多，组件也来越多，其中慢慢存在很多组件逻辑或者界面有绝大多数是重复或者相似，就使得维护起来特别麻烦了。vue的接口和语法又十分自由，实现一个功能有好多种办法，代码不一样思路不一样，导致各种风格的代码花样百出，没有一个规范性。本文主要列出一些可以参考从不同的方面列举出合理的解决办法。 构成组件组件，是一个具有一定功能，且不同组件间功能相对独立的模块。组件可以是一个按钮、一个输入框、一个视频">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://linjiaya.com/linjia.github.io/2018/08/02/vue组件如何合理复用/img.png">
 <meta property="og:image" content="http://linjiaya.com/linjia.github.io/2018/08/02/vue组件如何合理复用/img2.jpg">
 <meta property="og:image" content="http://linjiaya.com/linjia.github.io/2018/08/02/vue组件如何合理复用/img3.jpg">
-<meta property="og:updated_time" content="2018-08-02T10:30:15.000Z">
+<meta property="og:updated_time" content="2018-09-11T01:53:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue组件如何合理复用">
-<meta name="twitter:description" content="本文参考打造 Vue.js 可复用组件  业务越写越多，组件也来越多，其中慢慢存在很多组件逻辑或者界面有绝大多数是重复或者相似，就使得维护起来特别麻烦了。vue的接口和语法又十分自由，实现一个功能有好多种办法，代码不一样思路不一样，导致各种风格的代码花样百出，没有一个规范性。本文主要列出一些可以参考从不同的方面列举出合理的解决办法。 构成组件组件，是一个具有一定功能，且不同组件间功能相对独立的模块">
+<meta name="twitter:description" content="业务越写越多，组件也来越多，其中慢慢存在很多组件逻辑或者界面有绝大多数是重复或者相似，就使得维护起来特别麻烦了。vue的接口和语法又十分自由，实现一个功能有好多种办法，代码不一样思路不一样，导致各种风格的代码花样百出，没有一个规范性。本文主要列出一些可以参考从不同的方面列举出合理的解决办法。 构成组件组件，是一个具有一定功能，且不同组件间功能相对独立的模块。组件可以是一个按钮、一个输入框、一个视频">
 <meta name="twitter:image" content="http://linjiaya.com/linjia.github.io/2018/08/02/vue组件如何合理复用/img.png">
 
 
@@ -321,8 +321,7 @@
       
 
       
-        <p>本文参考<a href="https://blog.csdn.net/wulixiaoxiao1/article/details/64121962" target="_blank" rel="noopener"><strong>打造 Vue.js 可复用组件</strong></a> </p>
-<p>业务越写越多，组件也来越多，其中慢慢存在很多组件逻辑或者界面有绝大多数是重复或者相似，就使得维护起来特别麻烦了。vue的接口和语法又十分自由，实现一个功能有好多种办法，代码不一样思路不一样，导致各种风格的代码花样百出，没有一个规范性。本文主要列出一些可以参考从不同的方面列举出合理的解决办法。</p>
+        <p>业务越写越多，组件也来越多，其中慢慢存在很多组件逻辑或者界面有绝大多数是重复或者相似，就使得维护起来特别麻烦了。vue的接口和语法又十分自由，实现一个功能有好多种办法，代码不一样思路不一样，导致各种风格的代码花样百出，没有一个规范性。本文主要列出一些可以参考从不同的方面列举出合理的解决办法。</p>
 <h2 id="构成组件"><a href="#构成组件" class="headerlink" title="构成组件"></a>构成组件</h2><p>组件，是一个具有一定功能，且不同组件间功能相对独立的模块。组件可以是一个按钮、一个输入框、一个视频播放器等等。</p>
 <p><strong>可复用组件，高内聚、低耦合。</strong></p>
 <p>那么，什么构成了组件呢。以浏览器的原生组件 video 为例，分析一下组件的组成部分。</p>
@@ -426,6 +425,7 @@
 <p>按照这个思路构建我们的项目，最后的源代码目录结构（不包括构建流程文件）：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">│  App.vue          <span class="comment"># 顶级组件</span></span><br><span class="line">│  client-entry.js  <span class="comment"># 前端入口文件</span></span><br><span class="line">│  config.js        <span class="comment"># 配置文件</span></span><br><span class="line">│  main.js          <span class="comment"># 主入口文件</span></span><br><span class="line">│  </span><br><span class="line">├─api               <span class="comment"># 接口 API</span></span><br><span class="line">├─assets            <span class="comment"># 静态资源</span></span><br><span class="line">├─components        <span class="comment"># 通用组件</span></span><br><span class="line">├─directives        <span class="comment"># 自定义指令</span></span><br><span class="line">├─mock              <span class="comment"># Mock 数据</span></span><br><span class="line">├─plugins           <span class="comment"># 自定义插件</span></span><br><span class="line">├─router            <span class="comment"># 路由配置</span></span><br><span class="line">├─sections          <span class="comment"># 业务组件</span></span><br><span class="line">├─store             <span class="comment"># Vuex Store</span></span><br><span class="line">├─utils             <span class="comment"># 工具模块</span></span><br><span class="line">└─views             <span class="comment"># 路由页面组件</span></span><br></pre></td></tr></table></figure>
 <p>在通用组件中还可以区分容器组件、布局组件和其他功能性组件等。</p>
+<p>本文参考<a href="https://blog.csdn.net/wulixiaoxiao1/article/details/64121962" target="_blank" rel="noopener"><strong>打造 Vue.js 可复用组件</strong></a> </p>
 
       
     </div>
