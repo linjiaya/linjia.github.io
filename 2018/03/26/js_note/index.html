@@ -94,10 +94,13 @@
 <meta property="og:site_name" content="林佳&#39;s Blog">
 <meta property="og:description" content="typeof只返回 string、number、undefined、object、function  js中五种数据类型 string、number、undefined、boolean、null 与浏览器列表相关的对象 history、screen、location、navigator  stopImmediatePropagation()取消事件冒泡，同时阻止当前节点上事件处理程序被调用。 s">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-18T05:57:22.000Z">
+<meta property="og:image" content="http://linjiaya.com/linjia.github.io/2018/03/26/js_note/image-20181220113239645.png">
+<meta property="og:image" content="http://linjiaya.com/linjia.github.io/2018/03/26/js_note/image-20181220113616268.png">
+<meta property="og:updated_time" content="2018-12-20T04:07:33.202Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js 小记">
 <meta name="twitter:description" content="typeof只返回 string、number、undefined、object、function  js中五种数据类型 string、number、undefined、boolean、null 与浏览器列表相关的对象 history、screen、location、navigator  stopImmediatePropagation()取消事件冒泡，同时阻止当前节点上事件处理程序被调用。 s">
+<meta name="twitter:image" content="http://linjiaya.com/linjia.github.io/2018/03/26/js_note/image-20181220113239645.png">
 
 
 
@@ -325,8 +328,35 @@
 <li>在IE中 <strong><code>cancelBubble()</code></strong>取消事件冒泡、<strong><code>returnValue()</code></strong>取消事件默认行为</li>
 </ul>
 </li>
-<li><code>result.toFixed(3) * 1000 / 1000</code> 保留3位小数，并去掉末尾的0，最后一位四舍五入。</li>
+<li><p><code>result.toFixed(3) * 1000 / 1000</code> 保留3位小数，并去掉末尾的0，最后一位四舍五入。</p>
+</li>
+<li><p>跟大家说两个API，这两个API已经非常多的人在用了，就是document.querySelector和document.querySelectorAll方法。</p>
+<p>这两个方法可以通过传入CSS选择器形式的字符串，就可以匹配到预期的DOM节点。以下是目前两个API的兼容情况：</p>
+<p><img src="/linjia.github.io/2018/03/26/js_note/image-20181220113239645.png" alt="兼容性"><br>从图中可以看到，这两个API已经很好的兼容各个浏览器。</p>
+<p>Vue中也是使用此API进行元素获取的：</p>
+<p><img src="/linjia.github.io/2018/03/26/js_note/image-20181220113616268.png" alt="vue使用"></p>
+<ul>
+<li>性能问题</li>
+</ul>
+<p>为了提高用户体现，首要的就是解决浏览器绘制所带了的性能问题。最经典的莫过重绘和回流这两个概念。</p>
+<blockquote>
+<ul>
+<li>重绘：就是页面重新进行绘制，比方说，修改一个元素的背景颜色。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>回流：一般来说，浏览器进入页面的时候就已经进行了一次回流，回流其实指的就是页面重新进行排版布局。</li>
+</ul>
+</blockquote>
+<p>比如说我们这时多了一个换一换按钮。在传统开发模式中，这时的换一换按钮肯定执行的还是上面的代码，获取元素，修改元素的innerHTML，但是现在问题出现了，就是我们有必要将所有元素重新删除，再重新添加一遍吗？答案肯定是不需要（下图所示，创建一个元素的代价有多大）。</p>
+</li>
 </ol>
+<p>  一个li节点上的所有属性</p>
+<p>  因为这时我们只需要将每一个li里的文字和a标签里的链接修改即可，那显然是没有必要像上面那样重新再添加一遍li的。</p>
+<p>  因为一个DOM元素，可能包含上百条属性，这对性能开销是很大的。</p>
+<p>  那么现在出现的新概念Virtual DOM（虚拟DOM），就可以解决这个问题。其实Virtual DOM就是对真实DOM节点的描述，通过改变Virtual DOM来以最小变动来改变真实DOM（Virtual DOM不一定真的比jQuery性能更好）。</p>
+<p><strong>那么，网上都说操作真实 DOM 慢，但测试结果却比 React 更快，为什么？</strong></p>
 
       
     </div>
@@ -507,7 +537,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
