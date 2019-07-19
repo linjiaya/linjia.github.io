@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/linjia.github.io/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/linjia.github.io/lib/pace/pace-theme-bounce.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/linjia.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/linjia.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/linjia.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/linjia.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/linjia.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/linjia.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/linjia.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="vue,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="vue的生命周期，官网po了一张生命周期的图示，然后，我相信你会回来的。 每个组件都和生命周期有关，每个组件啥时候该做什么？该有什么？然后下一步要干嘛？怎样会触发？触发了然后会怎样？下面就来唠一唠。 那我也先po一张生命周期图先🤪  生命周期有8个，分别是：     创建=&amp;gt;挂载=&amp;gt;更新=&amp;gt;销毁 创建：beforeCreate、create 挂载：beforeMounted、m">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue生命周期">
+<meta property="og:url" content="http://linjiaya.com/linjia.github.io/2019/07/19/vue生命周期/index.html">
+<meta property="og:site_name" content="林佳&#39;s Blog">
+<meta property="og:description" content="vue的生命周期，官网po了一张生命周期的图示，然后，我相信你会回来的。 每个组件都和生命周期有关，每个组件啥时候该做什么？该有什么？然后下一步要干嘛？怎样会触发？触发了然后会怎样？下面就来唠一唠。 那我也先po一张生命周期图先🤪  生命周期有8个，分别是：     创建=&amp;gt;挂载=&amp;gt;更新=&amp;gt;销毁 创建：beforeCreate、create 挂载：beforeMounted、m">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/10/29/166be49ed80a875c?imageslim">
+<meta property="og:image" content="http://linjiaya.com/linjia.github.io/2019/07/19/vue生命周期/create.png">
+<meta property="og:image" content="http://linjiaya.com/linjia.github.io/2019/07/19/vue生命周期/render.png">
+<meta property="og:image" content="http://linjiaya.com/linjia.github.io/2019/07/19/vue生命周期/mount.png">
+<meta property="og:image" content="http://linjiaya.com/linjia.github.io/2019/07/19/vue生命周期/update.png">
+<meta property="og:image" content="http://linjiaya.com/linjia.github.io/2019/07/19/vue生命周期/destory.png">
+<meta property="og:updated_time" content="2019-07-19T09:24:04.807Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue生命周期">
+<meta name="twitter:description" content="vue的生命周期，官网po了一张生命周期的图示，然后，我相信你会回来的。 每个组件都和生命周期有关，每个组件啥时候该做什么？该有什么？然后下一步要干嘛？怎样会触发？触发了然后会怎样？下面就来唠一唠。 那我也先po一张生命周期图先🤪  生命周期有8个，分别是：     创建=&amp;gt;挂载=&amp;gt;更新=&amp;gt;销毁 创建：beforeCreate、create 挂载：beforeMounted、m">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/10/29/166be49ed80a875c?imageslim">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/linjia.github.io/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://linjiaya.com/linjia.github.io/2019/07/19/vue生命周期/">
+
+
+
+
+
+  <title>vue生命周期 | 林佳's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/linjia.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">林佳's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/linjia.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/linjia.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/linjia.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linjiaya.com/linjia.github.io/linjia.github.io/2019/07/19/vue生命周期/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="林佳">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/linjia.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="林佳's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vue生命周期</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-19T17:16:16+08:00">
+                2019-07-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>vue的生命周期，官网po了一张生命周期的图示，然后，我相信你会回来的。</p>
+<p>每个组件都和生命周期有关，每个组件啥时候该做什么？该有什么？然后下一步要干嘛？怎样会触发？触发了然后会怎样？下面就来唠一唠。</p>
+<p>那我也先po一张生命周期图先🤪</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/10/29/166be49ed80a875c?imageslim" alt="img"></p>
+<p>生命周期有8个，分别是：    </p>
+<p>创建=&gt;挂载=&gt;更新=&gt;销毁</p>
+<p>创建：<code>beforeCreate</code>、<code>create</code></p>
+<p>挂载：<code>beforeMounted</code>、<code>mounted</code></p>
+<p>更新：<code>beforeUpdate</code>、<code>updated</code></p>
+<p>销毁：<code>beforeDestroy</code>、<code>destroyed</code></p>
+<p><strong>我是用增删改查来的场景来理解这个过程</strong></p>
+<p>好的，现在我开始 <code>new Vue()</code> 了，初始化一下<code>init</code> 事件和生命周期</p>
+<h2 id="创建（新增）"><a href="#创建（新增）" class="headerlink" title="创建（新增）"></a>创建（新增）</h2><p><img src="/linjia.github.io/2019/07/19/vue生命周期/create.png" alt="beforeCreate、create"></p>
+<h3 id="beforeCreate"><a href="#beforeCreate" class="headerlink" title="beforeCreate"></a>beforeCreate</h3><p><strong>$el：</strong> ✖︎</p>
+<p><strong>data：</strong>✖︎</p>
+<p>比如打开了一个新增页面，白白的，啥都没。所以呢</p>
+<p>这里呢，可千万不要修改data。因为别人还没出生。</p>
+<font color="orange"><strong>?</strong> 那这个时候都在干些啥呢？在填数据吧</font>
+
+<font color="orange"><strong>?</strong> 然后，再injections和reactivity</font>
+
+<h3 id="create"><a href="#create" class="headerlink" title="create"></a>create</h3><p><strong>$el：</strong> ✖︎</p>
+<p><strong>data：</strong>✔︎</p>
+<p>这个时候呢，就是你已经填好数据了，也调了新增的接口，后台也保存了你的数据。前端得到后台提示新增成功！好！这个时候我们前端知道，哦，我刚新建了一个东西(data)并且成功了，但是我也不知道他长啥样（$el）。这样就新增完成啦！</p>
+<p>根据你提供的数据(data)，那他就要去造东西啦。咋造呢？</p>
+<p><img src="/linjia.github.io/2019/07/19/vue生命周期/render.png" alt="render"></p>
+<h4 id="先去看看有没有写-el：-，没有就会调用vm-mount-el"><a href="#先去看看有没有写-el：-，没有就会调用vm-mount-el" class="headerlink" title="先去看看有没有写 el：***，没有就会调用vm. $mount(el)"></a>先去看看有没有写 <code>el：***</code>，没有就会调用vm. $mount(el)</h4><ul>
+<li>el属性对生命周期的影响</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 有el属性的情况下</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">el: <span class="string">'#app'</span>,</span><br><span class="line">beforeCreate: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'调用了beforeCreate'</span>)</span><br><span class="line">&#125;,</span><br><span class="line">created: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'调用了created'</span>)</span><br><span class="line">&#125;,</span><br><span class="line">beforeMount: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'调用了beforeMount'</span>)</span><br><span class="line">&#125;,</span><br><span class="line">mounted: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'调用了mounted'</span>)</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出结果</span></span><br><span class="line"><span class="comment">// 调用了beforeCreate</span></span><br><span class="line"><span class="comment">// 调用了created</span></span><br><span class="line"><span class="comment">// 调用了beforeMount</span></span><br><span class="line"><span class="comment">// 调用了mounted</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在没有el属性的情况下，没有vm.$mount</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">beforeCreate: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'调用了beforeCreate'</span>)</span><br><span class="line">&#125;,</span><br><span class="line">created: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'调用了created'</span>)</span><br><span class="line">&#125;,</span><br><span class="line">beforeMount: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'调用了beforeMount'</span>)</span><br><span class="line">&#125;,</span><br><span class="line">mounted: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'调用了mounted'</span>)</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出结果</span></span><br><span class="line"><span class="comment">// 调用了beforeCreate</span></span><br><span class="line"><span class="comment">// 调用了created</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在没有el属性的情况下，但是有vm.$mount方法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">beforeCreate: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'调用了beforeCreate'</span>)</span><br><span class="line">&#125;,</span><br><span class="line">created: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'调用了created'</span>)</span><br><span class="line">&#125;,</span><br><span class="line">beforeMount: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'调用了beforeMount'</span>)</span><br><span class="line">&#125;,</span><br><span class="line">mounted: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'调用了mounted'</span>)</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">vm.$mount(<span class="string">'#app'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出结果</span></span><br><span class="line"><span class="comment">// 调用了beforeCreate</span></span><br><span class="line"><span class="comment">// 调用了created</span></span><br><span class="line"><span class="comment">// 调用了beforeMount</span></span><br><span class="line"><span class="comment">// 调用了mounted</span></span><br></pre></td></tr></table></figure>
+<p><strong>∴</strong> 如果没写el的话记得写$mount(el);</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  router,</span><br><span class="line">  store,</span><br><span class="line">  render: <span class="function"><span class="params">h</span> =&gt;</span> h(App)</span><br><span class="line">&#125;).$mount(<span class="string">'#app'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  router,</span><br><span class="line">  store,</span><br><span class="line">  template: <span class="string">'&lt;App/&gt;'</span>,</span><br><span class="line">  components: &#123;<span class="attr">App</span>: App&#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="然后看有没有template"><a href="#然后看有没有template" class="headerlink" title="然后看有没有template"></a>然后看有没有template</h4><ul>
+<li>template属性对生命周期的影响<ol>
+<li>在实例内部有template属性的时候，直接用内部的，然后调用render函数去渲染。</li>
+<li>在实例内部没有找到template，就调用外部的html。实例内部的template属性比外部的优先级高。 </li>
+<li>要是前两者都不满足，那么就抛出错误。</li>
+</ol>
+</li>
+</ul>
+<p>看几个例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  template: &apos;&lt;div id=&quot;app&quot;&gt;hello world&lt;/div&gt;&apos;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//页面上渲染出了hello world</span><br><span class="line">&lt;div id=&quot;app&quot;&gt;hello world&lt;/div&gt;</span><br><span class="line">/*========================================================*/</span><br><span class="line"></span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 页面上渲染出了hello world</span><br><span class="line">/*========================================================*/</span><br><span class="line"></span><br><span class="line">//两者都存在的时候</span><br><span class="line">&lt;div id=&quot;app&quot;&gt;hello world2&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  template: &apos;&lt;div id=&quot;app&quot;&gt;hello world1&lt;/div&gt;&apos;</span><br><span class="line">&#125;)</span><br><span class="line">// 页面上渲染出了hello world1</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong><font color="red">关于这个生命周期中的一些问题</font></strong>：</p>
+<ol>
+<li><p>为什么el属性的判断在template之前？ 因为el是一个选择器，比如上述例子中我们用到的最多的是id选择器app，vue实例需要用这个el去template中寻找对应的。</p>
+</li>
+<li><p>实际上，vue实例中还有一种render选项，我们可以从文档上看一下他的用法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (...)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>上述三者的渲染优先级：render函数 &gt; template属性 &gt; 外部html</p>
+</li>
+<li><p>vue编译过程——把tempalte编译成render函数的过程。</p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="挂载（查看）"><a href="#挂载（查看）" class="headerlink" title="挂载（查看）"></a>挂载（查看）</h2><p><img src="/linjia.github.io/2019/07/19/vue生命周期/mount.png" alt="beforeMount、mounted"></p>
+<h3 id="beforeMount"><a href="#beforeMount" class="headerlink" title="beforeMount"></a>beforeMount</h3><p><strong>el：</strong> ✖︎ (不是没有，而是没有编译之前的样子)<code>&lt;div&gt;&lt;/div&gt;</code></p>
+<p><strong>$el：</strong> ✔︎</p>
+<p><strong>data：</strong>✔︎</p>
+<p>这个时候，你想看下你造了个啥东西。那这个时候要做些什么呢？</p>
+<p>其实created之后做的一系列操作都是为了查看做准备，他们已经把数据、模板搅拌好了都放在了$el里面了。</p>
+<font color="orange"><strong>？</strong>  那这里能改data数据么？改完之后是调用render函数 <code>$el</code> 么？</font>
+
+<p>确认没问题了吧？那我就放到页面上去了哦！那怎么放呢？ 拿vm.$el去替换el里面说的那个dom。然后我们就走向<code>mounted</code></p>
+<h3 id="mounted"><a href="#mounted" class="headerlink" title="mounted"></a>mounted</h3><p><strong>el：</strong> ✔︎ （编译完成后的样子）<code>&lt;div&gt;123&lt;/div&gt;</code></p>
+<p><strong>$el：</strong> ✔︎</p>
+<p><strong>data：</strong>✔︎</p>
+<p>这个时候算是一个vue从初始化到展现到你面前的流程都走完了。</p>
+<p>这个时候如果要取dom对象，走到这个时候才能拿到的，比如要获取一个canvas。</p>
+<h2 id="更新（修改）"><a href="#更新（修改）" class="headerlink" title="更新（修改）"></a>更新（修改）</h2><p><img src="/linjia.github.io/2019/07/19/vue生命周期/update.png" alt="beforeUpdate、updated"></p>
+<h3 id="beforeUpdate"><a href="#beforeUpdate" class="headerlink" title="beforeUpdate"></a>beforeUpdate</h3><p>这个过程中，我们会发现，当一个数据发生改变时，你的视图也将随之改变，整个更新的过程是：数据改变——导致虚拟DOM的改变——调用这两个生命钩子去改变视图</p>
+<blockquote>
+<p><font color="red">重点：</font>这个数据只有和模版中的数据绑定了才会发生更新。</p>
+</blockquote>
+<p>比如有个组织区域我要改一下，我把组织从A → B。在下拉框选择了B，如果模板上面有用到这个数据（一定是模板上要用到了这个数据，没有也不会触发）发生了改变了，就会触发beforeUpdate。</p>
+<p>好，数据改变，那就到更新虚拟dom了，执行render函数</p>
+<h3 id="然后就是Updated了"><a href="#然后就是Updated了" class="headerlink" title="然后就是Updated了"></a>然后就是Updated了</h3><blockquote>
+<p>如果在beforeUpdate 和 Updated 执行的时候回，我又改了。会怎样执行？</p>
+</blockquote>
+<p>会把第一回合的更改执行完后，再更改再走一遍beforeUpdate → render  → updated。走到没有改动为止。</p>
+<p>可想而知，我都以为你改完了，你特么还改，那我就一直改，改到死。然后它就死了。</p>
+<p><strong><font color="red">所以没事别在beforeUpdate和updated里面改值</font></strong></p>
+<h2 id="销毁（删除）"><a href="#销毁（删除）" class="headerlink" title="销毁（删除）"></a>销毁（删除）</h2><p><img src="/linjia.github.io/2019/07/19/vue生命周期/destory.png" alt="beforeDestory、destory"></p>
+<h3 id="beforeDestory"><a href="#beforeDestory" class="headerlink" title="beforeDestory"></a>beforeDestory</h3><p>这里呢好比点击了删除，然后有个提示问我要删除了啊？是不是想问为啥不提示我“你要不要删？”，不存在的，你都过来了，我默认你要删了，可没有什么后悔药可以吃的。</p>
+<p>页面表现就是离开这个组件时触发的，不是看不到（前端应该知道区别的吧），不知道我再说下，就是我隐身站在你旁边，和我不在你身边的意思。</p>
+<blockquote>
+<p> 在这里可以做一些事件触发之类的事情，比如离开的时候要让下一个要来的人知道你想告诉他什么</p>
+<p>你们能够同时存在的时机就是从现在开始，在这你可以告诉他要干嘛干嘛</p>
+<p>怎么告诉呢，比如eventbus。</p>
+</blockquote>
+<p>之后呢，就开始拆除数据的监听，子组件，事件监听。把我这辈子的事迹都拆下</p>
+<p>除了vue自身的会自动卸载，其他的比如，你自己写的setInterval、eventBus.$on等等事件也好数据也好，手动拆除一下</p>
+<h3 id="destoryed"><a href="#destoryed" class="headerlink" title="destoryed"></a>destoryed</h3><p>上面没有拆完的这里也可以拆，就是让自己完全的成为一个死人就好了</p>
+<p>嗯，我走了</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/linjia.github.io/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/linjia.github.io/2018/10/09/debounce-throttle/" rel="next" title="debounce(函数去抖) & throttle(函数节流)">
+                <i class="fa fa-chevron-left"></i> debounce(函数去抖) & throttle(函数节流)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/linjia.github.io/images/avatar.gif" alt="林佳">
+            
+              <p class="site-author-name" itemprop="name">林佳</p>
+              <p class="site-description motion-element" itemprop="description">一些学习笔记和问题规整</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/linjia.github.io/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/linjia.github.io/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/linjiaya" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:linjiaya163@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建（新增）"><span class="nav-number">1.</span> <span class="nav-text">创建（新增）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#beforeCreate"><span class="nav-number">1.1.</span> <span class="nav-text">beforeCreate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#create"><span class="nav-number">1.2.</span> <span class="nav-text">create</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#先去看看有没有写-el：-，没有就会调用vm-mount-el"><span class="nav-number">1.2.1.</span> <span class="nav-text">先去看看有没有写 el：***，没有就会调用vm. $mount(el)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#然后看有没有template"><span class="nav-number">1.2.2.</span> <span class="nav-text">然后看有没有template</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#挂载（查看）"><span class="nav-number">2.</span> <span class="nav-text">挂载（查看）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#beforeMount"><span class="nav-number">2.1.</span> <span class="nav-text">beforeMount</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mounted"><span class="nav-number">2.2.</span> <span class="nav-text">mounted</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新（修改）"><span class="nav-number">3.</span> <span class="nav-text">更新（修改）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#beforeUpdate"><span class="nav-number">3.1.</span> <span class="nav-text">beforeUpdate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#然后就是Updated了"><span class="nav-number">3.2.</span> <span class="nav-text">然后就是Updated了</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#销毁（删除）"><span class="nav-number">4.</span> <span class="nav-text">销毁（删除）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#beforeDestory"><span class="nav-number">4.1.</span> <span class="nav-text">beforeDestory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#destoryed"><span class="nav-number">4.2.</span> <span class="nav-text">destoryed</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">林佳</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/linjia.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/linjia.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/linjia.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/linjia.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/linjia.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/linjia.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/linjia.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/linjia.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/linjia.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/linjia.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/linjia.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/linjia.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/linjia.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

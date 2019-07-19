@@ -6,10 +6,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -27,8 +27,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -47,7 +47,7 @@
 
   
   
-  <link href="/linjia.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/linjia.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -55,9 +55,9 @@
 
 
 
-<link href="/linjia.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/linjia.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/linjia.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/linjia.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/linjia.github.io/images/apple-touch-icon-next.png?v=5.1.4">
@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <link rel="canonical" href="http://linjiaya.com/linjia.github.io/"/>
+  <link rel="canonical" href="http://linjiaya.com/linjia.github.io/">
 
 
 
@@ -160,7 +160,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/linjia.github.io/"  class="brand" rel="start">
+      <a href="/linjia.github.io/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">林佳's Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -190,7 +190,7 @@
         <li class="menu-item menu-item-home">
           <a href="/linjia.github.io/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -200,7 +200,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/linjia.github.io/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -210,7 +210,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/linjia.github.io/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -249,11 +249,153 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linjiaya.com/linjia.github.io/linjia.github.io/2019/07/19/vue生命周期/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="林佳">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/linjia.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="林佳's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/linjia.github.io/2019/07/19/vue生命周期/" itemprop="url">vue生命周期</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-19T17:16:16+08:00">
+                2019-07-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          vue的生命周期，官网po了一张生命周期的图示，然后，我相信你会回来的。
+每个组件都和生命周期有关，每个组件啥时候该做什么？该有什么？然后下一步要干嘛？怎样会触发？触发了然后会怎样？下面就来唠一唠。
+那我也先po一张生命周期图先🤪
+
+生命周期有8个，分别是：    
+创建=&gt;挂载=&gt;更新=&gt;销毁
+创建：beforeCreate、create
+挂载：beforeMounted、mounted
+更新：beforeUpdate、updated
+销毁：beforeDestroy、destroyed
+我是用增删改查来的场景来理解这个过程
+好的，现在我开始 new Vue() 了，初始化一下init 事件和生命周期
+创建（新增）
+beforeCreate$el： ✖︎
+data：✖︎
+比如打开了一个新增页面，白白的，啥都没。所以呢
+这里呢，可千万不要修改data。因为别人还没出生。
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/linjia.github.io/2019/07/19/vue生命周期/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://linjiaya.com/linjia.github.io/linjia.github.io/2018/10/09/debounce-throttle/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林佳">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/linjia.github.io/images/avatar.gif">
     </span>
 
@@ -328,7 +470,10 @@ window 对象的 resize、scroll 事件
 文字输入、自动完成的 keyup 事件
 
 window 对象的 resize 事件，实际要求大多位停止改变大小n毫秒后执行后续处理。
-而其
+而其他时间大多需求是以一定的频率执行后续处理。
+针对这两种需求出现了 debounce 和 throttle 两种解决办法。
+debounce定义当调用动作n毫秒后，才会执行该动作，若在着n豪秒内有调用此动作则重新计算执行时间。
+比如 用手指按住一个弹簧，它将不会弹起直到松手为止。这个函数就是弹起这个动作。这个动作之前的动作是按住后放手，如果一直按住，则是在这n豪秒内一直调用这个动作，会一直重新计算
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -387,7 +532,7 @@ window 对象的 resize 事件，实际要求大多位停止改变大小n毫秒�
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林佳">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/linjia.github.io/images/avatar.gif">
     </span>
 
@@ -455,7 +600,10 @@ window 对象的 resize 事件，实际要求大多位停止改变大小n毫秒�
         
           
           业务越写越多，组件也来越多，其中慢慢存在很多组件逻辑或者界面有绝大多数是重复或者相似，就使得维护起来特别麻烦了。vue的接口和语法又十分自由，实现一个功能有好多种办法，代码不一样思路不一样，导致各种风格的代码花样百出，没有一个规范性。本文主要列出一些可以参考从不同的方面列举出合理的解决办法。
-构成组件组件，是一个具有一定功能，且不同组件间功能相对独立的模块。组件可以是一个按钮、一个输入框、一个视频
+构成组件组件，是一个具有一定功能，且不同组件间功能相对独立的模块。组件可以是一个按钮、一个输入框、一个视频播放器等等。
+可复用组件，高内聚、低耦合。
+那么，什么构成了组件呢。以浏览器的原生组件 video 为例，分析一下组件的组成部分。
+12345678&lt;video  src="example.mp4"  width="320"  height="240"  onload="loadHandler"  onerror="errorHandler"&gt;  Your browser does n
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -514,7 +662,7 @@ window 对象的 resize 事件，实际要求大多位停止改变大小n毫秒�
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林佳">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/linjia.github.io/images/avatar.gif">
     </span>
 
@@ -583,7 +731,8 @@ window 对象的 resize 事件，实际要求大多位停止改变大小n毫秒�
           
           下面的都是我别的地方看来的，我觉得写的很好。
 啥时候你想要用vuex了呢？如果你在使用 vue.js , 那么我想你可能会对 vue 组件之间的通信感到崩溃 。
-我在使用基于 vue.js 2.0 的UI框架 ElementUI 开发网站的时候 , 就遇到了这种问题 : 一个页面有很多表单 , 我试图将表单写成一个单文件组件 , 但是表单 ( 子组件 ) 里的数据和页面 ( 父组件 ) 按钮交互的
+我在使用基于 vue.js 2.0 的UI框架 ElementUI 开发网站的时候 , 就遇到了这种问题 : 一个页面有很多表单 , 我试图将表单写成一个单文件组件 , 但是表单 ( 子组件 ) 里的数据和页面 ( 父组件 ) 按钮交互的时候 , 它们之间的通讯很麻烦 :
+12345678910111213141516171819202122232425262728293031323334353637383940414243&lt;!--父组件中引入子组件--&gt;&lt;template&gt;  &lt;div&gt;    &lt;a href="javascript:;" @click="show = true"&gt;
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -642,7 +791,7 @@ window 对象的 resize 事件，实际要求大多位停止改变大小n毫秒�
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林佳">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/linjia.github.io/images/avatar.gif">
     </span>
 
@@ -711,7 +860,9 @@ window 对象的 resize 事件，实际要求大多位停止改变大小n毫秒�
           
           一开始呢看了google map的api，用纯js写都还可以，然后把，一要用vue写就感觉总有那里奇奇怪怪，走不通。在这里记一下，我目前会的一些解决办法。
 我看的是xyjyeah这个人的，讲的呢我感觉有点不详细了，有可能是我没看到或者理解能力太差了。不过呢，我大致看了一下代码。里面有些例子啥的，看看还是明白怎么用的了。要是哪里不对啥的，就跟我说哈，因为vue也不太会。
-&lt;gmap-map
+&lt;gmap-map&gt;标签这个是最大的标签咯，反正是包在外面的，所有地图上的啥都是在这个标签里面写。属性呢，只给了 center、zoom、heading、mapTypeId、tilt。出了这些之外的属性，就在option这个属性里面加，怎么加呢？option是个对象，以对象的形式加进去。要加什么就要看googlemap api官网上面怎么说啦。
+那我下面给个例子哈
+html123456789&lt;gma
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -770,7 +921,7 @@ window 对象的 resize 事件，实际要求大多位停止改变大小n毫秒�
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林佳">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/linjia.github.io/images/avatar.gif">
     </span>
 
@@ -839,7 +990,7 @@ window 对象的 resize 事件，实际要求大多位停止改变大小n毫秒�
           
           以下我只列举一些用到的例子啦，详情可以去 GoogleMap API官网上面看了。
 画圆
-123456789101112131415161718192021222324function initMap() &#123;  // Create the map.  var map = new google.maps.Map(document.getElementById('map'), &#123;
+123456789101112131415161718192021222324function initMap() &#123;  // Create the map.  var map = new google.maps.Map(document.getElementById('map'), &#123;    zoom: 4,    center: &#123;lat: 30.0, lng: 120.0&#125;,    mapTypeId: 'hybrid'  &#125;);  // Construct the circle for each value in citymap.  // Note: We scale the area of the circle based on the p
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -898,7 +1049,7 @@ window 对象的 resize 事件，实际要求大多位停止改变大小n毫秒�
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林佳">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/linjia.github.io/images/avatar.gif">
     </span>
 
@@ -969,7 +1120,13 @@ window 对象的 resize 事件，实际要求大多位停止改变大小n毫秒�
 typeof只返回 string、number、undefined、object、function  js中五种数据类型 string、number、undefined、boolean、null
 与浏览器列表相关的对象 history、screen、location、navigator
 
-stopImmediatePropagation()取消事件冒泡，同时阻止当前节点上事件处理程序被调用。 s
+stopImmediatePropagation()取消事件冒泡，同时阻止当前节点上事件处理程序被调用。 stopPropagation()取消事件冒泡，对当前节点无影响。
+在IE中 cancelBubble()取消事件冒泡、returnValue()取消事件默认行为
+
+
+result.toFixed(3) * 1000 / 1000 保留3位小数，并去掉末尾的0，最后一位四舍五入。
+
+这两个API已经非常多的人在用了，就是document.querySelector和document.querySel
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1028,7 +1185,7 @@ stopImmediatePropagation()取消事件冒泡，同时阻止当前节点上事件
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林佳">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/linjia.github.io/images/avatar.gif">
     </span>
 
@@ -1101,7 +1258,11 @@ stopImmediatePropagation()取消事件冒泡，同时阻止当前节点上事件
 应当注意，如果使用来自一下来源之一的字符串模板，则没有这些限制:
 
 
-&lt;script type=&quot;text/
+&lt;script type=&quot;text/x-template&quot;&gt;
+javascript 内敛模板字符串
+vue组件
+
+意思是：这样不可以123456789101112131415161718&lt;body&gt;    &lt;div id="app"&gt;        &lt;select&gt;            &lt;optioncomp&gt;&lt;/optioncomp&gt;        &l
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1160,7 +1321,7 @@ stopImmediatePropagation()取消事件冒泡，同时阻止当前节点上事件
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林佳">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/linjia.github.io/images/avatar.gif">
     </span>
 
@@ -1229,7 +1390,8 @@ stopImmediatePropagation()取消事件冒泡，同时阻止当前节点上事件
           
           IE6 问题解决ie6表格内外边框堆叠在html&lt;table&gt;中加上 border=&quot;1&quot; cellspacing=&quot;0&quot;
 解决表格中td中如果没有东西是，会出现没有边框的现象在td中加上&amp;nbsp;就会有一个无内容有边框的表格出现。
-解决IE6、7、8使用JSON.stringify报JSON未定义错误的问题在通过javascript将
+解决IE6、7、8使用JSON.stringify报JSON未定义错误的问题在通过javascript将对象类型的参数通过JSON.stringify转换成字符串传递时，IE6、7、8会报：”JSON”未定义的错误。我们可以通过在html文件的head头内引入json2.js文件来解决。123&lt;!--[if li IE 9]&gt;    &lt;script src="json2.js&gt;&lt;/script&gt;&lt;![endif]--&gt;
+引入之后，JSON.string
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1288,7 +1450,7 @@ stopImmediatePropagation()取消事件冒泡，同时阻止当前节点上事件
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林佳">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/linjia.github.io/images/avatar.gif">
     </span>
 
@@ -1365,137 +1527,16 @@ method字段表示对资源传输方式
 get 获取post 新增put 更新delete 删除
 
 
-304： 客户端已经执行了get，但是文件无变化。意义：出现太多的话，会降低搜索
+304： 客户端已经执行了get，但是文件无变化。意义：出现太多的话，会降低搜索引擎抓取频率以及次数，导致网站排名落后。
+
+301： 重定向。访问的资源被永久性删除。
+302： 临时重定向。暂时先用location的url访问，旧的资源还在。
+
+重定向与别名重定向的意思是：当用户访问/a，URL将会被替换成/b，然后匹配路由为/b。/a的别名就是/b。意味着，当用户访问/b时，URL会保持为/b，但是路由匹配则为/a，就像用户访问/a一样。别名的功能让你可以自由的将UI结构映
           ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/linjia.github.io/2018/03/25/mix_note/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://linjiaya.com/linjia.github.io/linjia.github.io/2018/03/25/vue_route_note/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="林佳">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/linjia.github.io/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="林佳's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/linjia.github.io/2018/03/25/vue_route_note/" itemprop="url">vue-route 小记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-25T18:15:32+08:00">
-                2018-03-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          引入router文件的index.js中123456789101112import LinRouter from 'vue-router' // 引入vue-routerimport Hello from '@components/Hello' // 定义路由组件Vue.use(LinRouter) // vue使用vue-router,这句话一定要有export default new LinR
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/linjia.github.io/2018/03/25/vue_route_note/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1572,9 +1613,7 @@ get 获取post 新增put 更新delete 删除
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/linjia.github.io/images/avatar.gif"
-                alt="林佳" />
+              <img class="site-author-image" itemprop="image" src="/linjia.github.io/images/avatar.gif" alt="林佳">
             
               <p class="site-author-name" itemprop="name">林佳</p>
               <p class="site-description motion-element" itemprop="description">一些学习笔记和问题规整</p>
@@ -1587,7 +1626,7 @@ get 获取post 新增put 更新delete 删除
               
                 <a href="/linjia.github.io/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

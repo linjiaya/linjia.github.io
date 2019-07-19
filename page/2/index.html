@@ -6,10 +6,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -27,8 +27,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -47,7 +47,7 @@
 
   
   
-  <link href="/linjia.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/linjia.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -55,9 +55,9 @@
 
 
 
-<link href="/linjia.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/linjia.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/linjia.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/linjia.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/linjia.github.io/images/apple-touch-icon-next.png?v=5.1.4">
@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <link rel="canonical" href="http://linjiaya.com/linjia.github.io/page/2/"/>
+  <link rel="canonical" href="http://linjiaya.com/linjia.github.io/page/2/">
 
 
 
@@ -160,7 +160,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/linjia.github.io/"  class="brand" rel="start">
+      <a href="/linjia.github.io/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">林佳's Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -190,7 +190,7 @@
         <li class="menu-item menu-item-home">
           <a href="/linjia.github.io/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -200,7 +200,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/linjia.github.io/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -210,7 +210,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/linjia.github.io/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -249,11 +249,139 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://linjiaya.com/linjia.github.io/linjia.github.io/2018/03/25/vue_route_note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="林佳">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/linjia.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="林佳's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/linjia.github.io/2018/03/25/vue_route_note/" itemprop="url">vue-route 小记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-25T18:15:32+08:00">
+                2018-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          引入router文件的index.js中123456789101112import LinRouter from 'vue-router' // 引入vue-routerimport Hello from '@components/Hello' // 定义路由组件Vue.use(LinRouter) // vue使用vue-router,这句话一定要有export default new LinRouter (&#123; //路由参数配置  [&#123;    path: '/',    name: 'hello',    component: Hello  &#125;]&#125;)
+这三个LinRouter必须一样
+在main.js中12345678import router from './router' // 引入路由配置文件new Vue(&#123;  el: '#app
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/linjia.github.io/2018/03/25/vue_route_note/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://linjiaya.com/linjia.github.io/linjia.github.io/2018/03/22/vue_someNotes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林佳">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/linjia.github.io/images/avatar.gif">
     </span>
 
@@ -328,7 +456,19 @@ This will install Vue 2.x version of the template.
 For Vue 1.x use: vue init webpack#1.0 firstVue
 
 
-vue-cli · Failed to download repo vuejs-templat
+vue-cli · Failed to download repo vuejs-templates/webpack: unable to verify he first certificate
+
+意思是：
+
+即将要安装vue2.x版本的模板
+
+
+如果要使用vue1.x 请使用命令vue init webpack#1.0 firstVue
+
+
+下载vuejs模板失败，出现这个问题，应该是npm不稳定造成的，请跟换为淘宝镜像cnpm
+
+使用以下命令安装cnpm$ npm install -g 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -409,9 +549,7 @@ vue-cli · Failed to download repo vuejs-templat
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/linjia.github.io/images/avatar.gif"
-                alt="林佳" />
+              <img class="site-author-image" itemprop="image" src="/linjia.github.io/images/avatar.gif" alt="林佳">
             
               <p class="site-author-name" itemprop="name">林佳</p>
               <p class="site-description motion-element" itemprop="description">一些学习笔记和问题规整</p>
@@ -424,7 +562,7 @@ vue-cli · Failed to download repo vuejs-templat
               
                 <a href="/linjia.github.io/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
